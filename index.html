@@ -1,11 +1,113 @@
 ﻿<!DOCTYPE html>
-
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <title>Md. Akif Zaman</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Portfolio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+        }
+
+        h1 {
+            font-size: 36px;
+        }
+
+        p {
+            font-size: 18px;
+        }
+
+        .profile-image {
+            text-align: center;
+        }
+
+            .profile-image img {
+                width: 200px;
+                height: 200px;
+                border-radius: 50%;
+            }
+
+        .works {
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .work-card {
+            flex: 1;
+            max-width: 300px;
+            background-color: #fff;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+            .work-card img {
+                width: 100%;
+                height: auto;
+            }
+
+        .social-links {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+            .social-links a {
+                display: inline-block;
+                margin: 0 10px;
+                font-size: 24px;
+                color: #333;
+            }
+    </style>
 </head>
 <body>
-
+    <header>
+        <h1>Your Name</h1>
+        <p>Unity Game Developer</p>
+    </header>
+    <div class="container">
+        <div class="profile-image">
+            <img src="your-photo.jpg" alt="Your Photo">
+        </div>
+        <p>
+            Welcome to my portfolio! I am a passionate Unity game developer with expertise in creating immersive gaming experiences.
+            Explore my work below, and feel free to connect with me on social media.
+        </p>
+        <div class="works">
+            <div class="work-card">
+                <img src="game1.jpg" alt="Game 1">
+                <p>Game 1 Description</p>
+            </div>
+            <div class="work-card">
+                <img src="game2.jpg" alt="Game 2">
+                <p>Game 2 Description</p>
+            </div>
+            <!-- Add more work cards as needed -->
+        </div>
+        <div class="social-links">
+            <a href="https://www.facebook.com/your-facebook-profile" target="_blank">Facebook</a>
+            <a href="https://www.instagram.com/your-instagram-profile" target="_blank">Instagram</a>
+        </div>
+    </div>
 </body>
 </html>
