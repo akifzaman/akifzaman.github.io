@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Developer Portfolio Site</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+        <!-- Update these with your own fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,900|Source+Sans+Pro:300,900&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/20b417e3c8.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="css/style.css">
+        <script async src="js/index.js"></script>
+    </head>
+    
+    <body>
+        <header>
+
+            <div class="logo">
+                <!-- <img src=http://andreyradovski.com/images/homeheaderb.png alt="developer's logo"> -->
+            </div>
+
+            <button class="nav-toggle" aria-label="toggle navigation">
+                <span class="hamburger"></span>
+            </button>
+
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li class="nav__item"><a class="nav__link" href="index.html">Home</a></li>
+                    <li class="nav__item"><a class="nav__link" href="index.html#services">My Services</a></li>
+                    <li class="nav__item"><a class="nav__link" href="index.html#about">About Me</a></li>
+                    <li class="nav__item"><a class="nav__link" href="index.html#work">My Work</a></li>
+                </ul>
+            </nav>
+
+        </header>
+
+        <section class="intro">
+
+            <h1 class="section__title section__title--intro">
+                Live Unity visuals<strong>Sevdah Body</strong>
+            </h1>
+            
+            <p class="section__subtitle section__subtitle--intro">3D grahics for live performance</p>
+            <img class="intro__img intro__img--sevdah-body" src="img/SevdahBody1.JPG" alt="dancer moving on stage with guitar player in background">
+        </section>
+
+        <section class="portfolio-item-individual">
+            <p>Digital visual lead for multi-media show by Circuit Debris incorporating live music, choreography, interactive Unity visuals and live volumetric capture via Kinect and DepthKit, ZVRK Dance Festival Bosnia, 2019
+            </p>
+
+            <div class="vimeo-frame-horizontal" style="padding:62.5% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/331599489?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Sevdah Body _ neoneon visuals"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+            
+            <p><a href="https://mersihamessiha.live/media">Sevdah Body</a> is a multi-media live performance created and directed by Bosnian choreographer Mersiha Mesihovic - it incorporates elements of indigenous Balkan music and dance in a thoroughly modern interpretation. Performances took place in New York and in Bosnia at ZVRK Contemporary Dance festival, and my role was to conceptualize and produce CG visuals that would react to the dancers in real time.</p>
+
+            <p>I started off by using DepthKit software and Kinect sensor to record volumetric video of Mersiha’s movements, then processed this material with customized versions of Keijiro Takahashi’s Unity visualization effects, and rendered the results to video in Premiere. Next I adapted the Unity project for live performance with audio-reactive inputs and controls - in order to process the dancer’s movements into stylized 3D visualization in real time, and send it via NDI to another team member, who mixed it in VDMX VJ software with output to a projection screen. The result was a 25-min-long seamless visualisation blending between pre-rendered video and live 3D graphics and morphing along to the music and the choreography.
+            </p>
+
+            <div class="vimeo-frame-horizontal" style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/378693013" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+        </section>
+
+        <footer class="footer">
+
+            <a href="mailto:akifzaman4040@gmail.com" class="footer__link">akifzaman4040@gmail.com</a>
+
+            <ul class="social-list">
+
+                <li class="social-list__item">
+                    <a class="social-list__link" href="https://www.linkedin.com/in/md-akif-zaman-35740a162/">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </li>
+
+                <li class="social-list__item">
+                    <a class="social-list__link" href="https://github.com/akifzaman">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </li>
+
+                <li class="social-list__item">
+                    <a class="social-list__link" href="https://www.facebook.com/akif.zaman.98">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                </li>
+
+            </ul>
+        </footer>
+
+    </body>
+</html>

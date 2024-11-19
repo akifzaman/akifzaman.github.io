@@ -1,269 +1,241 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Immersion Unbound</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+        <!-- Update these with your own fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,900|Source+Sans+Pro:300,900&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/20b417e3c8.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="css/style.css">
+        <script async src="js/index.js"></script>
+    </head>
+    
+    <body>
+        <header>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="shortcut icon" type="image/png" href="./images/favicon.png" />
-
-  <!-- Put your site title here -->
-  <title>
-    Akif Zaman | A Unity Game Developer based in Dhaka, Bangladesh.
-  </title>
-
-  <meta name="description" content="Welcome to my Unity Game Development Portfolio! I'm a game developer who thrives in the world of 2D gaming, but I also bring 3D magic to life. With a strong foundation in Unity, I specialize in crafting captivating 2D game experiences that blend nostalgia with innovation.
-    Explore my repository to discover a collection of 2D games that span various genres, from retro-inspired platformers to puzzle adventures. Each project demonstrates my keen eye for pixel art, gameplay mechanics, and storytelling.">
-  <!-- Add some coding keywords below, Ex: (React, CSS etc) -->
-  <meta name="keywords" content="Unity, Game Development" />
-  <link rel="stylesheet" href="index.css" />
-</head>
-
-<body>
-
-  <!-- ***** Header ***** -->
-
-  <header class="header" role="banner" id="top">
-    <div class="row">
-      <nav class="nav" role="navigation">
-        <ul class="nav__items">
-          <li class="nav__item"><a href="#work" class="nav__link">Works</a></li>
-          <li class="nav__item">
-            <a href="#about" class="nav__link">About</a>
-          </li>
-          <li class="nav__item">
-            <a href="#contact" class="nav__link">Contact</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-    <div class="header__text-box row">
-      <div class="header__text">
-        <h1 class="heading-primary">
-          
-          <span>Akif Zaman</span>
-        </h1>
-       
-        <p>A Game Developer based in Dhaka, Bangladesh.</p>
-        <a href="#contact" class="btn btn--pink">Get in touch</a>
-      </div>
-    </div>
-  </header>
-
-  <main role="main">
-
-    <!-- ***** Work ***** -->
-
-    <section class="work" id="work">
-      <div class="row">
-        <h2>My Works</h2>
-        <div class="work__boxes">
-
-          <!-- Each div with the work__box class is a project. -->
-
-          <div class="work__box">
-              <div class="work__text">
-                  <h3>Stonehurler</h3>
-                  <p>
-                      Stonehurler - A 2D Platformer Adventure
-                      "Stonehurler" is an immersive 2D platformer game designed and developed in a comparatively short period of time. In this thrilling adventure, players are thrust into a captivating world filled with challenges and creativity.
-
-                      <h3>Key Features</h3>
-                      <ul class="features_list">
-                          <li>Platforming Mastery</li>
-                          <li>Stone-Powered Puzzles</li>
-                          <li>Dynamic Gameplay</li>
-                          <li>Unique Environments</li>
-                          <li>Weight Matters</li>
-                          <li>Immersive World</li>
-                          <li>Gameplay Strategy</li>
-                      </ul>
-
-                      <a href="https://akifzaman.itch.io/stonehurler" class="btn btn--pink">Play Here</a>
-                      
-                  </p>
-                  <h3>Technology Used</h3>
-                  <ul class="work__list">
-                      <li>Unity</li>
-                      <li>C#</li>
-                      <li>Photoshop</li>
-                  </ul>
-              </div>
-            <div class="work__image-box">
-              <img src="./images/project-1.png" class="work__image" alt="Project 1" />
+            <div class="logo">
+                <!-- <img src=http://andreyradovski.com/images/homeheaderb.png alt="developer's logo"> -->
             </div>
-          </div>
 
-          <div class="work__box">
-              <div class="work__text">
-                  <h3>Crafting Manager</h3>
-                  <p>
-                      Modular Crafting System: A Unity Game Development Project
-                      Experience the power of creativity and resourcefulness with the "Modular Crafting System" — a versatile Unity game development project.
-                      This project brings the art of crafting to life, allowing players to explore, gather resources, and craft a wide array of items using a meticulously designed modular system.
+            <button class="nav-toggle" aria-label="toggle navigation">
+                <span class="hamburger"></span>
+            </button>
 
-                      <h3>Key Features</h3>
-                      <ul class="features_list">
-                          <li>Resource Gathering</li>
-                          <li>Crafting Mastery</li>
-                          <li>Modular Design</li>
-                          <li>Customizable Recipes</li>
-                          <li>Easy Integration</li>
-                      </ul>       
-                      <a href="https://akifzaman.itch.io/crafting-system" class="btn btn--pink">Play Here</a>                     
-                  </p>
-                  <h3>Technology Used</h3>
-                  <ul class="work__list">
-                      <li>Unity</li>
-                      <li>C#</li>
-                      <li>Photoshop</li>
-                  </ul>
-              </div>
-            <div class="work__image-box">
-              <img src="./images/project-2.png" class="work__image" alt="Project 2" />
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li class="nav__item"><a class="nav__link" href="#home">Home</a></li>
+                    <li class="nav__item"><a class="nav__link" href="#services">My Services</a></li>
+                    <li class="nav__item"><a class="nav__link" href="#about">About Me</a></li>
+                    <li class="nav__item"><a class="nav__link" href="#work">My Work</a></li>
+                </ul>
+            </nav>
+
+        </header>
+
+        <section class="intro" id="home">
+
+            <h1 class="section__title section__title--intro">
+                Hi, I'm <strong>Md. Akif Zaman</strong>
+            </h1>
+            
+            <p class="section__subtitle section__subtitle--intro">XR creative developer</p>
+            <img class="intro__img" src="img/DP.jpg" alt="Akif Zaman photo">
+
+        </section>
+
+        <section class="my-services" id="services">
+
+            <h2 class="section__title section__title--services">What I do</h2>
+            
+            <div class="services">
+
+                <div class="service">
+                    <h3>Web-based XR</h3>
+                    <p>Combining the latest tools for web-based AR and VR like 8th Wall, PlayCanvas, ThreeJS with the best practices in responsive web design to create seamless and accessible experiences</p>
+                </div>
+
+                <div class="service">
+                    <h3>Unity XR</h3>
+                    <p>For complex virtual applications like training suites and custom audio-reactive visualizations there’s Unity. Scripting interactions, lighting the scenes and building interfaces are all in my toolbox
+                    </p>
+                </div>
+                
+                <div class="service">
+                    <h3>Game Development</h3>
+                    <p>Creating engaging and interactive games using cutting-edge tools like Unity, with expertise in gameplay mechanics, level design, and player experience optimization
+                    </p>
+                </div>
             </div>
-          </div>
 
-          <div class="work__box">
-              <div class="work__text">
-                  <h3>Lost In Space</h3>
-                  <p>
-                      2D Space Shooter game created using Unity.
+            <a class="btn" href="#work">My Work</a>
 
-                      <h3>Key Features</h3>
-                      <ul class="features_list">
-                          <li>Single Player</li>
-                          <li>Challenging</li>
-                          <li>2D space shooter</li>
-                          <li>Well structured</li>
-                          <li>Optimized</li>
-                      </ul>
-                      <a href="https://akifzaman.itch.io/lost-in-space" class="btn btn--pink">Play Here</a>
-                  </p>
-                  <h3>Technology Used</h3>
-                  <ul class="work__list">
-                      <li>Unity</li>
-                      <li>C#</li>
-                      <li>Photoshop</li>
-                  </ul>
-              </div>
-              <div class="work__image-box">
-                  <img src="./images/project-4.png" class="work__image" alt="Project 4" />
-              </div>
-          </div>
+        </section>
 
-          <div class="work__box">
-              <div class="work__text">
-                  <h3>Dynamic Puzzle Mechanics System</h3>
-                  <p>
-                      <h3>Key Features</h3>
-                      <ul>
-                          <li>Generalized puzzle mechanics to create an unlimited number of puzzles</li>
-                          <li>Simple and easy to use</li>
-                          <li>User-friendly UI</li>
-                          <li>Easy and maintainable source codes</li>
-                          <li>Position-based puzzle mechanics</li>
-                          <li>Rotation-based puzzle mechanics</li>
-                          <li>Toggle-based puzzle mechanics</li>
-                          <li>Transfer-based puzzle mechanics</li>
-                          <li>Sequence-based puzzle mechanics</li>
-                          <li>Input-based puzzle mechanics</li>
-                          <li>Caesar cipher puzzle mechanics</li>
-                          <li>Pigpen cipher mechanics</li>
-                          <li>Binary To Decimal converting puzzle mechanics</li>
-                          <li>Roman To Decimal converting puzzle mechanics</li>
-                          <li>Configurable Timer</li>
-                      </ul>
-                      <a href="https://akifzaman.itch.io/dynamic-puzzle-mechanics-system" class="btn btn--pink">Download Here</a>
+        <section class="about-me" id="about">
 
-                  </p>
-                  <h3>Technology Used</h3>
-                  <ul class="work__list">
-                      <li>Unity</li>
-                      <li>C#</li>
-                      <li>Photoshop</li>
-                  </ul>
-              </div>
-            <div class="work__image-box">
-              <img src="./images/project-3.png" class="work__image" alt="Project 3" />
+            <h2 class="section__title section__title--about">Who I am</h2>
+            <p class="section__subtitle section__subtitle--about">XR and Game Developer</p>
+            <div class="about-me__body">
+                <p>With over 2.5 years of professional experience in Unity, I’ve been at the forefront of crafting immersive XR solutions and captivating game experiences. As a creative problem solver, I’ve had the privilege of contributing to high-profile projects for renowned clients like Nissan, No1 Events-UAE, Hemas, Akij Tiles and Ceramics, KFC, and others. Whether it’s developing cutting-edge AR and VR applications or designing engaging gameplay mechanics, I thrive on blending technical expertise with artistic vision to deliver innovative results.</p>
+                <p>I pride myself on being a relentless hard worker who doesn’t rest until the vision becomes reality. Every project is a journey of exploration and dedication, and I tackle challenges head-on, ensuring successful delivery no matter the obstacles. My commitment to excellence has been the backbone of my career, enabling me to meet client expectations while pushing creative boundaries in the XR and game development domains.
+                </p>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- ***** About ***** -->
+            <img class="about-me__img" src="img/ExperienceMoment.png" alt="Andrey Radovski amazed at what he sees through Magic Leap One augmented reality glasses">
 
-    <section class="about" id="about">
-      <div class="row">
-        <h2>About Me</h2>
-        <div class="about__content">
-          <div class="about__text">
-            <!-- Replace the below paragraph with info about yourself -->
-              <p>
-                  Welcome to my Unity Game Development Portfolio! I'm a game developer who thrives in the world of 2D gaming, but I also bring 3D magic to life. 
-                  With a strong foundation in Unity, I specialize in crafting captivating 2D game experiences that blend nostalgia with innovation.
-              </p>
-            <!-- Provide a link to your resume -->
-            <a href="D:/Unity/akifzaman.github.io/Resume.html" class="btn">My Resume</a>
-          </div>
+        </section>
 
-          <div class="about__photo-container">
-            <!-- Add a nice photo of yourself -->
-            <img class="about__photo" src="./images/akifZaman.png" alt="" />
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
+        <section class="my-work" id="work">
 
-  <!-- ***** Contact ***** -->
+            <h2 class="section__title section__title--work">AR - VR - MR</h2>
+            <p class="section__subtitle section__subtitle--work">A selection of my AR, VR, MR project contributions</p>
 
-  <section class="contact" id="contact">
-    <div class="row">
-      <h2>Get in Touch</h2>
-      <div class="contact__info">
-        <p>
-          Want to ask questions? Or have some advice for me
-          or just want to say "Hi 👋" in any case feel free to Let me know. I
-          will do my best to respond back. 😊 The quickest way to reach out to
-          me is via an email.
-        </p>
-        <!-- Replace the email with yours -->
-        <a href="akifzaman4040@gmail.com" class="btn">akifzaman4040@gmail.com</a>
-      </div>
-    </div>
-  </section>
+            <!-- <h2 class="section__title section__title--work">Augmented Reality</h2> -->
+            <div class="portfolio">
+                <!-- Portfolio item 2 -->
+                <a href="portfolio-item4_neon-one.html" class="portfolio__item">
+                    <img src="img/Akij.png" alt="3D outline of a man dancing in a colorful abstract virtual landscape" class="portfolio__img">
+                    <div class="portfolio__item-tag">Unity AR<br><strong>Tiles TryOn</strong></div>
+                </a>
+                <!-- Portfolio item 3 -->
+                <a href="portfolio-item2_stereoh.html" class="portfolio__item">
+                    <img src="img/FurnitureTryOn.png" alt="beautiful virtual oasis with a stage framed my polygonal palm trees" class="portfolio__img">
+                    <div class="portfolio__item-tag">Unity AR<br><strong>Furniture TryOn</strong></div>
+                </a>
+                <!-- Portfolio item 4 -->
+                <a href="portfolio-item3_sevdah-body.html" class="portfolio__item">
+                    <img src="img/KFC.png" alt="dancer moving on stage with guitar player in background" class="portfolio__img">
+                    <div class="portfolio__item-tag">Unity AR<br><strong>Product Campaign</strong></div>
+                </a>
+            </div>
+            <div class="portfolio">
+                <!-- Portfolio item 1 -->
+                <a href="portfolio-item1_style-hunt.html" class="portfolio__item">
+                    <img src="img/NDG.png" alt="fashionable lady walking the streets of New York with a smile" class="portfolio__img">
+                    <div class="portfolio__item-tag">Unity AR<br><strong>Nissan Driver's Guide ME</strong></div>
+                </a>
+                <!-- Portfolio item 5 -->
+                <a href="portfolio-item1_style-hunt.html" class="portfolio__item">
+                    <img src="img/Gitex.png" alt="fashionable lady walking the streets of New York with a smile" class="portfolio__img">
+                    <div class="portfolio__item-tag">Unity + Meta Quest3<br><strong>GITEX Demo</strong></div>
+                </a>
+            </div>
+        </section>
 
-  <!-- ***** Footer ***** -->
+        <section class="my-work" id="work">
 
-  <footer role="contentinfo" class="footer">
-    <div class="row">
-      <!-- Update the links to point to your accounts -->
-      <ul class="footer__social-links">
-        <li class="footer__social-link-item">
-          <a href="https://www.facebook.com/akif.zaman.98" title="Link to Facebook Profile">
-            <img src="./images/facebook.png" class="footer__social-image" alt="Facebook">
-          </a>
-        </li>
-        <li class="footer__social-link-item">
-          <a href="https://github.com/akifzaman" title="Link to Github Profile">
-            <img src="./images/github.svg" class="footer__social-image" alt="Github">
-          </a>
-        </li>
-        <li class="footer__social-link-item">
-          <a href=https://www.linkedin.com/in/md-akif-zaman-35740a162/">
-            <img src="./images/linkedin.svg" title="Link to Linkedin Profile" class="footer__social-image" alt="Linkedin">
-          </a>
-        </li>
-      </ul>
+            <h2 class="section__title section__title--work">Miscellaneous</h2>
+            <p class="section__subtitle section__subtitle--work">A selection of my project where I had to go beyond Unity</p>
+            <div class="portfolio">
+            
+                <!-- Portfolio item 3 -->
+                <a href="portfolio-item3_sevdah-body.html" class="portfolio__item">
+                    <img src="img/Nissan3D.png" alt="dancer moving on stage with guitar player in background" class="portfolio__img">
+                    <div class="portfolio__item-tag">3D + Chatbot<br><strong>Nissan 3D Car Visualizer</strong></div>
+                </a>
 
-    </div>
-  </footer>
+                <!-- Portfolio item 6 -->
+                <a href="portfolio-item2_stereoh.html" class="portfolio__item">
+                    <img src="img/8thWall.png" alt="beautiful virtual oasis with a stage framed my polygonal palm trees" class="portfolio__img">
+                    <div class="portfolio__item-tag">8th Wall<br><strong>Consumer Engagement</strong></div>
+                </a>
 
-  <a href="#top" class="back-to-top" title="Back to Top">
-    <img src="./images/arrow-up.svg" alt="Back to Top" class="back-to-top__image"/>
-  </a>
-  <script src="./index.js"></script>
-</body>
+                <!-- Portfolio item 8 -->
+                <a href="portfolio-item4_neon-one.html" class="portfolio__item">
+                    <img src="img/Hemas.png" alt="3D outline of a man dancing in a colorful abstract virtual landscape" class="portfolio__img">
+                    <div class="portfolio__item-tag">JS + Mediapipe<br><strong>Product Campaign</strong></div>
+                </a>
+            </div>
+        </section>
 
+        <section class="my-work" id="work">
+
+            <h2 class="section__title section__title--work">Unity Asset Store Contribution</h2>
+            <p class="section__subtitle section__subtitle--work">My small contributions to Unity Asset Store</p>
+
+            <!-- <h2 class="section__title section__title--work">Augmented Reality</h2> -->
+            <div class="portfolio">
+                <!-- Portfolio item 1 -->
+                <a href="qr.html" class="portfolio__item">
+                    <img src="img/QR.png" alt="dancer moving on stage with guitar player in background" class="portfolio__img">
+                    <div class="portfolio__item-tag">Unity<br><strong>Dynamic QR Generator</strong></div>
+                </a>
+
+                <!-- Portfolio item 2 -->
+                <a href="puzzle.html" class="portfolio__item">
+                    <img src="img/Puzzle.png" alt="3D outline of a man dancing in a colorful abstract virtual landscape" class="portfolio__img">
+                    <div class="portfolio__item-tag">Unity 2D + 3D<br><strong>Dynamic Puzzle System</strong></div>
+                </a>
+                <!-- Portfolio item 3 -->
+                <a href="mega.html" class="portfolio__item">
+                    <img src="img/Mega.png" alt="dancer moving on stage with guitar player in background" class="portfolio__img">
+                    <div class="portfolio__item-tag">Unity + Mega SDK<br><strong>Mega Integration</strong></div>
+                </a>
+
+                <!-- Portfolio item 4 -->
+                <a href="tapGames.html" class="portfolio__item">
+                    <img src="img/TapGames.png" alt="3D outline of a man dancing in a colorful abstract virtual landscape" class="portfolio__img">
+                    <div class="portfolio__item-tag">Unity 2D<br><strong>Tap Based Game Maker</strong></div>
+                </a>
+            </div>
+        </section>
+
+        <section class="my-work" id="work">
+
+            <h2 class="section__title section__title--work">Game Development</h2>
+            <p class="section__subtitle section__subtitle--work">A passion which never became a part of my profession</p>
+
+            <!-- <h2 class="section__title section__title--work">Augmented Reality</h2> -->
+            <div class="portfolio">
+                <!-- Portfolio item 1 -->
+                <a href="stonerHurler.html" class="portfolio__item">
+                    <img src="img/StoneHurler.png" alt="dancer moving on stage with guitar player in background" class="portfolio__img">
+                    <div class="portfolio__item-tag">Unity 2D<br><strong>StoneHurler</strong></div>
+                </a>
+                <a href="bubbleShooter.html" class="portfolio__item">
+                    <img src="img/bubbleShooter.png" alt="dancer moving on stage with guitar player in background" class="portfolio__img">
+                    <div class="portfolio__item-tag">Unity 2D<br><strong>Bubble Shooter</strong></div>
+                </a>
+                <!-- Portfolio item 2 -->
+                <a href="spaceShooter.html" class="portfolio__item">
+                    <img src="img/SpaceShooter.png" alt="3D outline of a man dancing in a colorful abstract virtual landscape" class="portfolio__img">
+                    <div class="portfolio__item-tag">Unity 2D<br><strong>Lost In Space</strong></div>
+                </a>
+                <!-- Portfolio item 3 -->
+                <a href="crafting.html" class="portfolio__item">
+                    <img src="img/Crafting.png" alt="dancer moving on stage with guitar player in background" class="portfolio__img">
+                    <div class="portfolio__item-tag">Unity 2D<br><strong>Crafting Mechanics</strong></div>
+                </a>
+            </div>
+        </section>
+        <footer class="footer">
+
+            <a href="mailto:akifzaman4040@gmail.com" class="footer__link">akifzaman4040@gmail.com</a>
+
+            <ul class="social-list">
+
+                <li class="social-list__item">
+                    <a class="social-list__link" href="https://www.linkedin.com/in/md-akif-zaman-35740a162/">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </li>
+
+                <li class="social-list__item">
+                    <a class="social-list__link" href="https://github.com/akifzaman">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </li>
+
+                <li class="social-list__item">
+                    <a class="social-list__link" href="https://www.facebook.com/akif.zaman.98">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                </li>
+
+            </ul>
+        </footer>
+
+    </body>
 </html>
