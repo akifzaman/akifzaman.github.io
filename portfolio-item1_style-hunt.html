@@ -3,95 +3,73 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Developer Portfolio Site</title>
+        <title>GITEX Meta Quest 3 MR Drone Controller | Md. Akif Zaman</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
-        <!-- Update these with your own fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,900|Source+Sans+Pro:300,900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@500;600;700&family=Source+Code+Pro:wght@400;700&display=swap" rel="stylesheet">
         <script src="https://kit.fontawesome.com/20b417e3c8.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="css/style.css">
-        <script async src="js/index.js"></script>
+        <script defer src="js/index.js"></script>
     </head>
     
-    <body>
-        <header>
+    <body class="cyber-theme">
+        <div class="scanlines"></div>
+        <div class="cyber-grid-overlay"></div>
 
+        <header class="cyber-header">
             <div class="logo">
-                <!-- <img src=http://andreyradovski.com/images/homeheaderb.png alt="developer's logo"> -->
+                <a href="index.html" class="logo__text"><span class="neon-pink">&lt;</span>AKIF<span class="neon-cyan">.XR /&gt;</span></a>
             </div>
-
-            <button class="nav-toggle" aria-label="toggle navigation">
-                <span class="hamburger"></span>
-            </button>
 
             <nav class="nav">
                 <ul class="nav__list">
-                    <li class="nav__item"><a class="nav__link" href="index.html">Home</a></li>
-                    <li class="nav__item"><a class="nav__link" href="index.html#services">My Services</a></li>
-                    <li class="nav__item"><a class="nav__link" href="index.html#about">About Me</a></li>
-                    <li class="nav__item"><a class="nav__link" href="index.html#work">My Work</a></li>
+                    <li class="nav__item"><a class="nav__link" href="index.html#home">01 // Home</a></li>
+                    <li class="nav__item"><a class="nav__link" href="index.html#work">02 // Portfolio</a></li>
+                    <li class="nav__item"><a class="nav__link" href="index.html#contact">03 // Contact</a></li>
                 </ul>
             </nav>
-
         </header>
 
-        <section class="intro">
+        <section class="intro" style="min-height: auto; padding-top: 8em;">
+            <div class="intro__content">
+                <div class="hud-tag"><i class="fas fa-vr-cardboard"></i> MIXED REALITY // META QUEST 3</div>
+                <h1 class="section__title">
+                    GITEX <strong>MR Drone Controller</strong>
+                </h1>
+                <p class="section__subtitle">Showcased Live at GITEX Tech Exhibition, Dubai</p>
+            </div>
 
-            <h1 class="section__title section__title--intro">
-                Mixed Reality<strong>Drone Controller</strong>
-            </h1>
-            
-            <p class="section__subtitle section__subtitle--intro">Showcased in GITEX</p>
-            <img class="intro__img intro__img--style-hunt" src="img/Gitex.png" alt="dashing young fashion model smiling in a sun-lit courtyard">
+            <div class="intro__img-wrapper">
+                <div class="hud-frame"></div>
+                <img class="intro__img" src="img/Gitex.png" alt="GITEX Demo Showcase">
+            </div>
         </section>
 
         <section class="portfolio-item-individual">
-            <p> This Unity Mixed Reality (MR) project, designed for Meta Quest 3, offers an engaging game where users pilot a virtual drone with smooth and intuitive controls to pop floating bubbles in their real-world environment. Created specifically for the GITEX tech-fair in Dubai, this project demonstrates the seamless blend of virtual and physical spaces, showcasing the capabilities of MR technology in an interactive and visually immersive way.
+            <p>
+                This Unity Mixed Reality (MR) experience created for Meta Quest 3 enables users to pilot a high-precision virtual drone within physical spatial environments. Built specifically for the GITEX technology exhibition in Dubai, the application demonstrates seamless pass-through blend, real-time spatial physics, and custom hand tracking mechanics to interact with physical room geometry.
             </p>
 
-            <div class="vimeo-frame">
-                <iframe class="vimeo-player" src="https://player.vimeo.com/video/1036511508?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Style Hunt - AR game demo 2020">
-                </iframe>
+            <div class="vimeo-frame-horizontal" style="padding:56.25% 0 0 0; position:relative; margin: 2em 0; border: 1px solid var(--clr-accent-cyan); border-radius: 8px; overflow: hidden; box-shadow: var(--glow-cyan);">
+                <iframe src="https://player.vimeo.com/video/1036511508?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="GITEX MR Drone Showcase"></iframe>
             </div>
-            <p>
-                <h3>Key Features</h3>
-                <ul>
-                    <li>Immersive Drone Piloting</li> 
-                    <li>Bubble Popping Gameplay</li>
-                    <li>Seamless MR Integration</li>
-                    <li>Designed for Meta Quest 3</li>
-                    <li>Enhanced User Experience</li>
-                    <li>Showcase for GITEX</li>
-                    <li>Real-World Interaction</li>
-                </ul>
-            </p>
+
+            <h3>&lt;KEY ARCHITECTURAL FEATURES /&gt;</h3>
+            <ul>
+                <li><i class="fas fa-check-circle neon-cyan"></i> Meta Quest 3 Passthrough Integration</li>
+                <li><i class="fas fa-check-circle neon-cyan"></i> Intuitive Spatial Drone Controls</li>
+                <li><i class="fas fa-check-circle neon-cyan"></i> Real-World Surface Mapping</li>
+                <li><i class="fas fa-check-circle neon-cyan"></i> Interactive Bubble Popping Physics</li>
+                <li><i class="fas fa-check-circle neon-cyan"></i> Low-Latency Spatial Audio Feedback</li>
+                <li><i class="fas fa-check-circle neon-cyan"></i> High-Footfall Exhibition Optimization</li>
+            </ul>
+
+            <div style="margin-top: 3em; text-align: center;">
+                <a href="index.html#work" class="btn btn--cyber"><i class="fas fa-arrow-left"></i> Back to Spatial Matrix</a>
+            </div>
         </section>
 
         <footer class="footer">
-
-            <a href="mailto:akifzaman4040@gmail.com" class="footer__link">akifzaman4040@gmail.com</a>
-
-            <ul class="social-list">
-
-                <li class="social-list__item">
-                    <a class="social-list__link" href="https://www.linkedin.com/in/md-akif-zaman-35740a162/">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                </li>
-
-                <li class="social-list__item">
-                    <a class="social-list__link" href="https://github.com/akifzaman">
-                        <i class="fab fa-github"></i>
-                    </a>
-                </li>
-
-                <li class="social-list__item">
-                    <a class="social-list__link" href="https://www.facebook.com/akif.zaman.98">
-                        <i class="fab fa-facebook"></i>
-                    </a>
-                </li>
-
-            </ul>
+            <p class="footer__copy">&copy; 2025 Md. Akif Zaman // All Rights Reserved</p>
         </footer>
-
     </body>
 </html>

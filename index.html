@@ -3,22 +3,31 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Md. Akif Zaman | XR Creative Developer</title>
+        <title>Md. Akif Zaman | XR Creative Developer & Spatial Experience Architect</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
-        <!-- Fonts & Icons -->
-        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,900|Source+Sans+Pro:300,900&display=swap" rel="stylesheet">
+        <!-- Google Fonts & Font Awesome Icons -->
+        <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@500;600;700&family=Source+Code+Pro:wght@400;700&display=swap" rel="stylesheet">
         <script src="https://kit.fontawesome.com/20b417e3c8.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="css/style.css">
-        <!-- Three.js for 3D XR background -->
+        <!-- Three.js for 3D XR Scene -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
         <script defer src="js/index.js"></script>
     </head>
 
-    <body>
-        <header>
+    <body class="cyber-theme">
+        <!-- Cyber HUD Overlay & Scanlines -->
+        <div class="scanlines"></div>
+        <div class="cyber-grid-overlay"></div>
 
+        <header class="cyber-header">
             <div class="logo">
-                <span class="logo__text">&lt;AKIF / XR&gt;</span>
+                <a href="#home" class="logo__text"><span class="neon-pink">&lt;</span>AKIF<span class="neon-cyan">.XR /&gt;</span></a>
+            </div>
+
+            <!-- Audio Controller Toggle -->
+            <div class="audio-control" id="audio-toggle" title="Toggle Futuristic SFX">
+                <i class="fas fa-volume-mute" id="audio-icon"></i>
+                <span class="audio-label">SFX: OFF</span>
             </div>
 
             <button class="nav-toggle" aria-label="toggle navigation">
@@ -27,263 +36,341 @@
 
             <nav class="nav">
                 <ul class="nav__list">
-                    <li class="nav__item"><a class="nav__link" href="#home">Home</a></li>
-                    <li class="nav__item"><a class="nav__link" href="#services">My Services</a></li>
-                    <li class="nav__item"><a class="nav__link" href="#about">About Me</a></li>
-                    <li class="nav__item"><a class="nav__link" href="#work">My Work</a></li>
+                    <li class="nav__item"><a class="nav__link sfx-btn" href="#home">01 // Home</a></li>
+                    <li class="nav__item"><a class="nav__link sfx-btn" href="#about">02 // About</a></li>
+                    <li class="nav__item"><a class="nav__link sfx-btn" href="#services">03 // Services</a></li>
+                    <li class="nav__item"><a class="nav__link sfx-btn" href="#work">04 // Portfolio</a></li>
+                    <li class="nav__item"><a class="nav__link sfx-btn" href="#contact">05 // Contact</a></li>
                 </ul>
             </nav>
-
         </header>
 
+        <!-- Hero Section with 3D Spatial Canvas -->
         <section class="intro" id="home">
             <canvas id="xr-canvas"></canvas>
 
-            <div class="intro__content">
+            <div class="intro__content reveal-on-scroll">
+                <div class="hud-tag"><i class="fas fa-crosshairs"></i> SPATIAL COMPUTING & XR ARCHITECT</div>
                 <h1 class="section__title section__title--intro">
-                    Hi, I'm <strong>Md. Akif Zaman</strong>
+                    Md. Akif <strong>Zaman</strong>
                 </h1>
 
                 <p class="section__subtitle section__subtitle--intro">
-                    <span class="xr-badge"><i class="fas fa-vr-cardboard"></i> AR / VR / Spatial Computing</span><br>
-                    XR Creative Developer & Interactive Experience Architect
+                    Crafting Next-Gen <span class="glow-text">Augmented Reality</span>, <span class="glow-text">Virtual Reality</span> & <span class="glow-text">Interactive 3D Environments</span>
                 </p>
 
                 <div class="intro__tags">
-                    <span class="tech-tag"><i class="fas fa-cube"></i> Unity XR</span>
-                    <span class="tech-tag"><i class="fas fa-globe"></i> WebXR / 8th Wall</span>
-                    <span class="tech-tag"><i class="fas fa-eye"></i> Meta Quest 3 & AR</span>
-                    <span class="tech-tag"><i class="fas fa-code"></i> Three.js / WebGL</span>
+                    <span class="tech-tag sfx-hover"><i class="fas fa-cube"></i> Unity XR</span>
+                    <span class="tech-tag sfx-hover"><i class="fas fa-globe"></i> WebXR / 8th Wall</span>
+                    <span class="tech-tag sfx-hover"><i class="fas fa-glasses"></i> Meta Quest 3 & VisionOS</span>
+                    <span class="tech-tag sfx-hover"><i class="fas fa-vr-cardboard"></i> Spatial Audio & WebGL</span>
+                </div>
+
+                <div class="hero-cta">
+                    <a class="btn btn--cyber sfx-btn" href="#work"><i class="fas fa-play"></i> Launch Experience</a>
+                    <a class="btn btn--outline sfx-btn" href="#contact"><i class="fas fa-paper-plane"></i> Initiate Contact</a>
                 </div>
             </div>
 
-            <img class="intro__img" src="img/DP.jpg" alt="Akif Zaman photo">
-
+            <div class="intro__img-wrapper reveal-on-scroll">
+                <div class="hud-frame"></div>
+                <img class="intro__img" src="img/DP.jpg" alt="Md. Akif Zaman Photo">
+                <div class="hud-status"><span class="status-dot"></span> SYSTEM ONLINE</div>
+            </div>
         </section>
 
-        <section class="my-services" id="services">
+        <!-- Dynamic Experience Stats Banner -->
+        <section class="stats-banner reveal-on-scroll">
+            <div class="stat-card sfx-hover">
+                <div class="stat-number" data-target="2.5">2.5+</div>
+                <div class="stat-label">Years Unity & XR Experience</div>
+            </div>
+            <div class="stat-card sfx-hover">
+                <div class="stat-number" data-target="15">15+</div>
+                <div class="stat-label">Commercial Projects Delivered</div>
+            </div>
+            <div class="stat-card sfx-hover">
+                <div class="stat-number" data-target="6">6+</div>
+                <div class="stat-label">Global Brands (Nissan, KFC, Akij)</div>
+            </div>
+            <div class="stat-card sfx-hover">
+                <div class="stat-number" data-target="100">100%</div>
+                <div class="stat-label">Immersive Vision Realized</div>
+            </div>
+        </section>
 
-            <h2 class="section__title section__title--services">What I do</h2>
+        <!-- About Me Section -->
+        <section class="about-me" id="about">
+            <div class="about-me__content reveal-on-scroll">
+                <h2 class="section__title section__title--about">&lt;WHO I AM /&gt;</h2>
+                <p class="section__subtitle section__subtitle--about">XR Creative Developer & Gameplay Specialist</p>
+                <div class="about-me__body">
+                    <p>With over 2.5 years of professional experience in Unity, WebXR, and Spatial Computing, I specialize in bringing imagination to life in 3D physical and virtual dimensions. As a creative problem solver, I’ve architected high-impact XR campaigns and custom applications for clients including <strong>Nissan, No1 Events-UAE, Hemas, Akij Tiles, and KFC</strong>.</p>
+                    <p>From developing Markerless AR Try-On experiences and Web-based 8th Wall campaigns to crafting complex Meta Quest 3 hand-tracking mechanics and audio-reactive spatial environments, I push technical boundaries to build memorable, highly accessible digital products.</p>
+                </div>
+            </div>
+
+            <div class="about-me__img-container reveal-on-scroll">
+                <div class="hud-frame-purple"></div>
+                <img class="about-me__img" src="img/ExperienceMoment.png" alt="Akif Zaman exploring AR technology">
+            </div>
+        </section>
+
+        <!-- My Services Section -->
+        <section class="my-services" id="services">
+            <div class="section-header reveal-on-scroll">
+                <h2 class="section__title section__title--services">&lt;CORE CAPABILITIES /&gt;</h2>
+                <p class="section__subtitle">Pioneering Spatial Interactions across Multiple Platforms</p>
+            </div>
 
             <div class="services">
-
-                <div class="service">
+                <div class="service tilt-card reveal-on-scroll sfx-hover">
                     <div class="service__icon"><i class="fas fa-globe"></i></div>
-                    <h3>Web-based XR</h3>
-                    <p>Combining the latest tools for web-based AR and VR like 8th Wall, PlayCanvas, ThreeJS with the best practices in responsive web design to create seamless and accessible experiences</p>
+                    <h3>Web-Based XR & WebGL</h3>
+                    <p>Deploying instant browser-based AR/VR via 8th Wall, Three.js, and PlayCanvas. Zero app installs, maximum reach and cross-platform mobile compatibility.</p>
                 </div>
 
-                <div class="service">
+                <div class="service tilt-card reveal-on-scroll sfx-hover">
                     <div class="service__icon"><i class="fas fa-vr-cardboard"></i></div>
-                    <h3>Unity XR</h3>
-                    <p>For complex virtual applications like training suites and custom audio-reactive visualizations there’s Unity. Scripting interactions, lighting the scenes and building interfaces are all in my toolbox</p>
+                    <h3>Unity XR & Spatial Audio</h3>
+                    <p>Creating immersive VR training suites, spatial UI, custom shaders, hand tracking, and spatial audio mechanics for Meta Quest 3, HoloLens, and VisionOS.</p>
                 </div>
 
-                <div class="service">
+                <div class="service tilt-card reveal-on-scroll sfx-hover">
                     <div class="service__icon"><i class="fas fa-gamepad"></i></div>
-                    <h3>Game Development</h3>
-                    <p>Creating engaging and interactive games using cutting-edge tools like Unity, with expertise in gameplay mechanics, level design, and player experience optimization</p>
+                    <h3>Interactive Gameplay & VFX</h3>
+                    <p>Crafting responsive physics, custom mechanics, fluid animations, particles, and real-time interactive visual effects that captivate players.</p>
                 </div>
             </div>
-
-            <a class="btn" href="#work">Explore Work <i class="fas fa-arrow-right"></i></a>
-
         </section>
 
-        <section class="about-me" id="about">
-
-            <h2 class="section__title section__title--about">Who I am</h2>
-            <p class="section__subtitle section__subtitle--about">XR and Game Developer</p>
-            <div class="about-me__body">
-                <p>With over 2.5 years of professional experience in Unity, I’ve been at the forefront of crafting immersive XR solutions and captivating game experiences. As a creative problem solver, I’ve had the privilege of contributing to high-profile projects for renowned clients like Nissan, No1 Events-UAE, Hemas, Akij Tiles and Ceramics, KFC, and others. Whether it’s developing cutting-edge AR and VR applications or designing engaging gameplay mechanics, I thrive on blending technical expertise with artistic vision to deliver innovative results.</p>
-                <p>I pride myself on being a relentless hard worker who doesn’t rest until the vision becomes reality. Every project is a journey of exploration and dedication, and I tackle challenges head-on, ensuring successful delivery no matter the obstacles. My commitment to excellence has been the backbone of my career, enabling me to meet client expectations while pushing creative boundaries in the XR and game development domains.</p>
-            </div>
-
-            <img class="about-me__img" src="img/ExperienceMoment.png" alt="Akif Zaman exploring augmented reality glasses">
-
-        </section>
-
+        <!-- Portfolio Showcase Matrix -->
         <section class="my-work" id="work">
-
-            <h2 class="section__title section__title--work">Featured Projects</h2>
-            <p class="section__subtitle section__subtitle--work">Explore interactive spatial experiences, AR/VR builds, WebXR tools and game projects</p>
+            <div class="section-header reveal-on-scroll">
+                <h2 class="section__title section__title--work">&lt;SPATIAL MATRIX /&gt;</h2>
+                <p class="section__subtitle section__subtitle--work">Curated Portfolio of AR, VR, WebXR & Game Architecture</p>
+            </div>
 
             <!-- Portfolio Filter Tabs -->
-            <div class="portfolio-filters">
-                <button class="filter-btn active" data-filter="all"><i class="fas fa-th-large"></i> All</button>
-                <button class="filter-btn" data-filter="xr"><i class="fas fa-vr-cardboard"></i> AR / VR / MR</button>
-                <button class="filter-btn" data-filter="webxr"><i class="fas fa-globe"></i> WebXR & Tech</button>
-                <button class="filter-btn" data-filter="assets"><i class="fas fa-box"></i> Unity Assets</button>
-                <button class="filter-btn" data-filter="games"><i class="fas fa-gamepad"></i> Games</button>
+            <div class="portfolio-filters reveal-on-scroll">
+                <button class="filter-btn sfx-btn active" data-filter="all"><i class="fas fa-th-large"></i> ALL PROJECTS</button>
+                <button class="filter-btn sfx-btn" data-filter="xr"><i class="fas fa-vr-cardboard"></i> AR / VR / MR</button>
+                <button class="filter-btn sfx-btn" data-filter="webxr"><i class="fas fa-globe"></i> WEBXR & TECH</button>
+                <button class="filter-btn sfx-btn" data-filter="assets"><i class="fas fa-box"></i> UNITY ASSETS</button>
+                <button class="filter-btn sfx-btn" data-filter="games"><i class="fas fa-gamepad"></i> GAMES</button>
             </div>
 
             <div class="portfolio portfolio-grid">
                 <!-- XR Items -->
-                <a href="portfolio-item4_neon-one.html" class="portfolio__item" data-category="xr">
+                <div class="portfolio__item tilt-card reveal-on-scroll sfx-hover" data-category="xr">
                     <img src="img/Akij.png" alt="Akij Tiles AR TryOn" class="portfolio__img">
-                    <div class="portfolio__item-tag">
+                    <div class="portfolio__overlay">
                         <span class="category-badge">Unity AR</span>
-                        <strong>Tiles TryOn</strong>
+                        <h3 class="portfolio__title">Akij Tiles AR TryOn</h3>
+                        <p class="portfolio__desc">Real-time surface detection and tile customization in AR environments.</p>
+                        <a href="portfolio-item4_neon-one.html" class="portfolio__link sfx-btn">View Project <i class="fas fa-arrow-right"></i></a>
                     </div>
-                </a>
+                </div>
 
-                <a href="portfolio-item2_stereoh.html" class="portfolio__item" data-category="xr">
+                <div class="portfolio__item tilt-card reveal-on-scroll sfx-hover" data-category="xr">
                     <img src="img/FurnitureTryOn.png" alt="Furniture AR TryOn" class="portfolio__img">
-                    <div class="portfolio__item-tag">
+                    <div class="portfolio__overlay">
                         <span class="category-badge">Unity AR</span>
-                        <strong>Furniture TryOn</strong>
+                        <h3 class="portfolio__title">Furniture AR TryOn</h3>
+                        <p class="portfolio__desc">Horizontal plane anchoring for virtual furniture preview before purchase.</p>
+                        <a href="portfolio-item2_stereoh.html" class="portfolio__link sfx-btn">View Project <i class="fas fa-arrow-right"></i></a>
                     </div>
-                </a>
+                </div>
 
-                <a href="portfolio-item3_sevdah-body.html" class="portfolio__item" data-category="xr">
+                <div class="portfolio__item tilt-card reveal-on-scroll sfx-hover" data-category="xr">
                     <img src="img/KFC.png" alt="KFC AR Campaign" class="portfolio__img">
-                    <div class="portfolio__item-tag">
+                    <div class="portfolio__overlay">
                         <span class="category-badge">Unity AR</span>
-                        <strong>Product Campaign</strong>
+                        <h3 class="portfolio__title">KFC Product Campaign</h3>
+                        <p class="portfolio__desc">Interactive augmented reality promotional challenge game.</p>
+                        <a href="portfolio-item3_sevdah-body.html" class="portfolio__link sfx-btn">View Project <i class="fas fa-arrow-right"></i></a>
                     </div>
-                </a>
+                </div>
 
-                <a href="nissanNDG.html" class="portfolio__item" data-category="xr">
+                <div class="portfolio__item tilt-card reveal-on-scroll sfx-hover" data-category="xr">
                     <img src="img/NDG.png" alt="Nissan Driver's Guide ME" class="portfolio__img">
-                    <div class="portfolio__item-tag">
+                    <div class="portfolio__overlay">
                         <span class="category-badge">Unity AR</span>
-                        <strong>Nissan Driver's Guide ME</strong>
+                        <h3 class="portfolio__title">Nissan Driver's Guide ME</h3>
+                        <p class="portfolio__desc">Augmented visual guide manual for vehicle components.</p>
+                        <a href="nissanNDG.html" class="portfolio__link sfx-btn">View Project <i class="fas fa-arrow-right"></i></a>
                     </div>
-                </a>
+                </div>
 
-                <a href="portfolio-item1_style-hunt.html" class="portfolio__item" data-category="xr">
+                <div class="portfolio__item tilt-card reveal-on-scroll sfx-hover" data-category="xr">
                     <img src="img/Gitex.png" alt="GITEX Meta Quest 3 Demo" class="portfolio__img">
-                    <div class="portfolio__item-tag">
-                        <span class="category-badge">Unity + Quest 3</span>
-                        <strong>GITEX Demo</strong>
+                    <div class="portfolio__overlay">
+                        <span class="category-badge">Quest 3 MR</span>
+                        <h3 class="portfolio__title">GITEX Drone Controller</h3>
+                        <p class="portfolio__desc">Mixed reality virtual drone piloting built for Meta Quest 3 showcase.</p>
+                        <a href="portfolio-item1_style-hunt.html" class="portfolio__link sfx-btn">View Project <i class="fas fa-arrow-right"></i></a>
                     </div>
-                </a>
+                </div>
 
-                <!-- WebXR / Misc Items -->
-                <a href="nissan3d.html" class="portfolio__item" data-category="webxr">
+                <!-- WebXR / Tech Items -->
+                <div class="portfolio__item tilt-card reveal-on-scroll sfx-hover" data-category="webxr">
                     <img src="img/Nissan3D.png" alt="Nissan 3D Car Visualizer" class="portfolio__img">
-                    <div class="portfolio__item-tag">
-                        <span class="category-badge">3D + Chatbot</span>
-                        <strong>Nissan 3D Car Visualizer</strong>
+                    <div class="portfolio__overlay">
+                        <span class="category-badge">3D + AI Chatbot</span>
+                        <h3 class="portfolio__title">Nissan 3D Visualizer</h3>
+                        <p class="portfolio__desc">Interactive 3D vehicle customization with integrated AI chatbot.</p>
+                        <a href="nissan3d.html" class="portfolio__link sfx-btn">View Project <i class="fas fa-arrow-right"></i></a>
                     </div>
-                </a>
+                </div>
 
-                <a href="eightWall.html" class="portfolio__item" data-category="webxr">
+                <div class="portfolio__item tilt-card reveal-on-scroll sfx-hover" data-category="webxr">
                     <img src="img/8thWall.png" alt="8th Wall WebAR" class="portfolio__img">
-                    <div class="portfolio__item-tag">
+                    <div class="portfolio__overlay">
                         <span class="category-badge">8th Wall WebAR</span>
-                        <strong>Consumer Engagement</strong>
+                        <h3 class="portfolio__title">Consumer Engagement</h3>
+                        <p class="portfolio__desc">Appless WebAR web experiences for brand activation.</p>
+                        <a href="eightWall.html" class="portfolio__link sfx-btn">View Project <i class="fas fa-arrow-right"></i></a>
                     </div>
-                </a>
+                </div>
 
-                <a href="mediapipe.html" class="portfolio__item" data-category="webxr">
+                <div class="portfolio__item tilt-card reveal-on-scroll sfx-hover" data-category="webxr">
                     <img src="img/Hemas.png" alt="JS + Mediapipe" class="portfolio__img">
-                    <div class="portfolio__item-tag">
+                    <div class="portfolio__overlay">
                         <span class="category-badge">JS + Mediapipe</span>
-                        <strong>Product Campaign</strong>
+                        <h3 class="portfolio__title">Product Campaign</h3>
+                        <p class="portfolio__desc">AI pose tracking and face mesh web experience.</p>
+                        <a href="mediapipe.html" class="portfolio__link sfx-btn">View Project <i class="fas fa-arrow-right"></i></a>
                     </div>
-                </a>
+                </div>
 
-                <a href="opencv.html" class="portfolio__item" data-category="webxr">
+                <div class="portfolio__item tilt-card reveal-on-scroll sfx-hover" data-category="webxr">
                     <img src="img/opencv.png" alt="Python + OpenCV" class="portfolio__img">
-                    <div class="portfolio__item-tag">
+                    <div class="portfolio__overlay">
                         <span class="category-badge">Python + OpenCV</span>
-                        <strong>Gesture Detection</strong>
+                        <h3 class="portfolio__title">Gesture Detection</h3>
+                        <p class="portfolio__desc">Real-time computer vision and gesture mapping system.</p>
+                        <a href="opencv.html" class="portfolio__link sfx-btn">View Project <i class="fas fa-arrow-right"></i></a>
                     </div>
-                </a>
+                </div>
 
-                <!-- Asset Store Contributions -->
-                <a href="qr.html" class="portfolio__item" data-category="assets">
+                <!-- Asset Store Items -->
+                <div class="portfolio__item tilt-card reveal-on-scroll sfx-hover" data-category="assets">
                     <img src="img/QR.png" alt="Dynamic QR Generator" class="portfolio__img">
-                    <div class="portfolio__item-tag">
+                    <div class="portfolio__overlay">
                         <span class="category-badge">Unity Asset</span>
-                        <strong>Dynamic QR Generator</strong>
+                        <h3 class="portfolio__title">Dynamic QR Generator</h3>
+                        <p class="portfolio__desc">Unity plugin for real-time runtime QR code rendering.</p>
+                        <a href="qr.html" class="portfolio__link sfx-btn">View Project <i class="fas fa-arrow-right"></i></a>
                     </div>
-                </a>
+                </div>
 
-                <a href="puzzle.html" class="portfolio__item" data-category="assets">
+                <div class="portfolio__item tilt-card reveal-on-scroll sfx-hover" data-category="assets">
                     <img src="img/Puzzle.png" alt="Dynamic Puzzle System" class="portfolio__img">
-                    <div class="portfolio__item-tag">
+                    <div class="portfolio__overlay">
                         <span class="category-badge">Unity Asset</span>
-                        <strong>Dynamic Puzzle System</strong>
+                        <h3 class="portfolio__title">Dynamic Puzzle System</h3>
+                        <p class="portfolio__desc">Procedural 2D/3D puzzle generation framework.</p>
+                        <a href="puzzle.html" class="portfolio__link sfx-btn">View Project <i class="fas fa-arrow-right"></i></a>
                     </div>
-                </a>
+                </div>
 
-                <a href="mega.html" class="portfolio__item" data-category="assets">
+                <div class="portfolio__item tilt-card reveal-on-scroll sfx-hover" data-category="assets">
                     <img src="img/Mega.png" alt="Mega Integration" class="portfolio__img">
-                    <div class="portfolio__item-tag">
+                    <div class="portfolio__overlay">
                         <span class="category-badge">Unity SDK</span>
-                        <strong>Mega Integration</strong>
+                        <h3 class="portfolio__title">Mega Cloud SDK</h3>
+                        <p class="portfolio__desc">Cloud storage integration tool for Unity developers.</p>
+                        <a href="mega.html" class="portfolio__link sfx-btn">View Project <i class="fas fa-arrow-right"></i></a>
                     </div>
-                </a>
+                </div>
 
-                <a href="tapGames.html" class="portfolio__item" data-category="assets">
+                <div class="portfolio__item tilt-card reveal-on-scroll sfx-hover" data-category="assets">
                     <img src="img/TapGames.png" alt="Tap Based Game Maker" class="portfolio__img">
-                    <div class="portfolio__item-tag">
-                        <span class="category-badge">Unity 2D Tool</span>
-                        <strong>Tap Based Game Maker</strong>
+                    <div class="portfolio__overlay">
+                        <span class="category-badge">Unity Tool</span>
+                        <h3 class="portfolio__title">Tap Game Maker</h3>
+                        <p class="portfolio__desc">Rapid arcade game development framework.</p>
+                        <a href="tapGames.html" class="portfolio__link sfx-btn">View Project <i class="fas fa-arrow-right"></i></a>
                     </div>
-                </a>
+                </div>
 
-                <!-- Game Development -->
-                <a href="stonerHurler.html" class="portfolio__item" data-category="games">
+                <!-- Game Items -->
+                <div class="portfolio__item tilt-card reveal-on-scroll sfx-hover" data-category="games">
                     <img src="img/StoneHurler.png" alt="StoneHurler Game" class="portfolio__img">
-                    <div class="portfolio__item-tag">
-                        <span class="category-badge">Unity 2D Game</span>
-                        <strong>StoneHurler</strong>
+                    <div class="portfolio__overlay">
+                        <span class="category-badge">Unity 2D</span>
+                        <h3 class="portfolio__title">StoneHurler</h3>
+                        <p class="portfolio__desc">Physics-based stone hurling 2D game mechanics.</p>
+                        <a href="stonerHurler.html" class="portfolio__link sfx-btn">View Project <i class="fas fa-arrow-right"></i></a>
                     </div>
-                </a>
+                </div>
 
-                <a href="bubbleShooter.html" class="portfolio__item" data-category="games">
+                <div class="portfolio__item tilt-card reveal-on-scroll sfx-hover" data-category="games">
                     <img src="img/bubbleShooter.png" alt="Bubble Shooter Game" class="portfolio__img">
-                    <div class="portfolio__item-tag">
-                        <span class="category-badge">Unity 2D Game</span>
-                        <strong>Bubble Shooter</strong>
+                    <div class="portfolio__overlay">
+                        <span class="category-badge">Unity 2D</span>
+                        <h3 class="portfolio__title">Bubble Shooter</h3>
+                        <p class="portfolio__desc">Classic arcade bubble puzzle game implementation.</p>
+                        <a href="bubbleShooter.html" class="portfolio__link sfx-btn">View Project <i class="fas fa-arrow-right"></i></a>
                     </div>
-                </a>
+                </div>
 
-                <a href="spaceShooter.html" class="portfolio__item" data-category="games">
+                <div class="portfolio__item tilt-card reveal-on-scroll sfx-hover" data-category="games">
                     <img src="img/SpaceShooter.png" alt="Lost In Space Game" class="portfolio__img">
-                    <div class="portfolio__item-tag">
-                        <span class="category-badge">Unity 2D Game</span>
-                        <strong>Lost In Space</strong>
+                    <div class="portfolio__overlay">
+                        <span class="category-badge">Unity 2D</span>
+                        <h3 class="portfolio__title">Lost In Space</h3>
+                        <p class="portfolio__desc">Retro space shooter with particle systems and weapon upgrades.</p>
+                        <a href="spaceShooter.html" class="portfolio__link sfx-btn">View Project <i class="fas fa-arrow-right"></i></a>
                     </div>
-                </a>
+                </div>
 
-                <a href="crafting.html" class="portfolio__item" data-category="games">
+                <div class="portfolio__item tilt-card reveal-on-scroll sfx-hover" data-category="games">
                     <img src="img/Crafting.png" alt="Crafting Mechanics Game" class="portfolio__img">
-                    <div class="portfolio__item-tag">
+                    <div class="portfolio__overlay">
                         <span class="category-badge">Unity Mechanic</span>
-                        <strong>Crafting Mechanics</strong>
+                        <h3 class="portfolio__title">Crafting System</h3>
+                        <p class="portfolio__desc">Inventory, resource grid, and recipe crafting system.</p>
+                        <a href="crafting.html" class="portfolio__link sfx-btn">View Project <i class="fas fa-arrow-right"></i></a>
                     </div>
-                </a>
+                </div>
             </div>
         </section>
 
-        <footer class="footer">
+        <!-- Contact Section -->
+        <section class="contact-section" id="contact">
+            <div class="contact-container reveal-on-scroll">
+                <h2 class="section__title">&lt;INITIATE CONTACT /&gt;</h2>
+                <p class="contact-desc">Ready to elevate your spatial vision, WebXR experience, or Unity application? Let's connect.</p>
 
-            <a href="mailto:akifzaman4040@gmail.com" class="footer__link">akifzaman4040@gmail.com</a>
+                <div class="contact-actions">
+                    <a href="mailto:akifzaman4040@gmail.com" class="btn btn--cyber sfx-btn">
+                        <i class="fas fa-envelope"></i> akifzaman4040@gmail.com
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cyber Footer -->
+        <footer class="footer">
+            <p class="footer__copy">&copy; 2025 Md. Akif Zaman // All Rights Reserved // Built for Spatial Computing</p>
 
             <ul class="social-list">
-
                 <li class="social-list__item">
-                    <a class="social-list__link" href="https://www.linkedin.com/in/md-akif-zaman-35740a162/" target="_blank" rel="noopener">
+                    <a class="social-list__link sfx-btn" href="https://www.linkedin.com/in/md-akif-zaman-35740a162/" target="_blank" rel="noopener">
                         <i class="fab fa-linkedin"></i>
                     </a>
                 </li>
-
                 <li class="social-list__item">
-                    <a class="social-list__link" href="https://github.com/akifzaman" target="_blank" rel="noopener">
+                    <a class="social-list__link sfx-btn" href="https://github.com/akifzaman" target="_blank" rel="noopener">
                         <i class="fab fa-github"></i>
                     </a>
                 </li>
-
                 <li class="social-list__item">
-                    <a class="social-list__link" href="https://www.facebook.com/akif.zaman.98" target="_blank" rel="noopener">
+                    <a class="social-list__link sfx-btn" href="https://www.facebook.com/akif.zaman.98" target="_blank" rel="noopener">
                         <i class="fab fa-facebook"></i>
                     </a>
                 </li>
-
             </ul>
         </footer>
 

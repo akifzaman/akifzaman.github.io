@@ -3,93 +3,72 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Developer Portfolio Site</title>
+        <title>Augmented Reality Furniture TryOn | Md. Akif Zaman</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
-        <!-- Update these with your own fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,900|Source+Sans+Pro:300,900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@500;600;700&family=Source+Code+Pro:wght@400;700&display=swap" rel="stylesheet">
         <script src="https://kit.fontawesome.com/20b417e3c8.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="css/style.css">
-        <script async src="js/index.js"></script>
+        <script defer src="js/index.js"></script>
     </head>
     
-    <body>
-        <header>
+    <body class="cyber-theme">
+        <div class="scanlines"></div>
+        <div class="cyber-grid-overlay"></div>
 
+        <header class="cyber-header">
             <div class="logo">
-                <!-- <img src=http://andreyradovski.com/images/homeheaderb.png alt="developer's logo"> -->
+                <a href="index.html" class="logo__text"><span class="neon-pink">&lt;</span>AKIF<span class="neon-cyan">.XR /&gt;</span></a>
             </div>
-
-            <button class="nav-toggle" aria-label="toggle navigation">
-                <span class="hamburger"></span>
-            </button>
 
             <nav class="nav">
                 <ul class="nav__list">
-                    <li class="nav__item"><a class="nav__link" href="index.html">Home</a></li>
-                    <li class="nav__item"><a class="nav__link" href="index.html#services">My Services</a></li>
-                    <li class="nav__item"><a class="nav__link" href="index.html#about">About Me</a></li>
-                    <li class="nav__item"><a class="nav__link" href="index.html#work">My Work</a></li>
+                    <li class="nav__item"><a class="nav__link" href="index.html#home">01 // Home</a></li>
+                    <li class="nav__item"><a class="nav__link" href="index.html#work">02 // Portfolio</a></li>
+                    <li class="nav__item"><a class="nav__link" href="index.html#contact">03 // Contact</a></li>
                 </ul>
             </nav>
-
         </header>
 
-        <section class="intro">
+        <section class="intro" style="min-height: auto; padding-top: 8em;">
+            <div class="intro__content">
+                <div class="hud-tag"><i class="fas fa-cube"></i> UNITY AR // SPATIAL COMMERCE</div>
+                <h1 class="section__title">
+                    AR Furniture <strong>TryOn Suite</strong>
+                </h1>
+                <p class="section__subtitle">Markerless Surface Detection & Precision Spatial Anchoring</p>
+            </div>
 
-            <h1 class="section__title section__title--intro">
-                Augmented Reality<strong>Furniture TryOn</strong>
-            </h1>
-            
-            <p class="section__subtitle section__subtitle--intro">Try before purchase</p>
-            <img class="intro__img intro__img--stereoh" src="img/FurnitureTryOn.png" alt="virtual avatars talking in a colorful environment">
+            <div class="intro__img-wrapper">
+                <div class="hud-frame"></div>
+                <img class="intro__img" src="img/FurnitureTryOn.png" alt="Furniture TryOn AR App">
+            </div>
         </section>
 
         <section class="portfolio-item-individual">
-            <p> This Unity AR project allows users to place virtual furniture on horizontal surfaces in real-world environments, enabling them to visualize how the furniture fits and looks in their space before making a purchase. By leveraging AR Foundation, the app detects horizontal planes like floors and accurately anchors furniture models, creating an interactive and immersive shopping experience.</p>
-
-            <div class="vimeo-frame-horizontal" style="padding:75% 0 0 0;position:relative;">
-                <iframe src="https://player.vimeo.com/video/1037195486?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="crafting"></iframe>
-            </div>     
             <p>
-                <h3>Key Features</h3>
-                <ul>
-                    <li>Real-Time Furniture Placement</li> 
-                    <li>Accurate Scale and Positioning</li>
-                    <li>Interactive Customization</li>
-                    <li>Seamless AR Integration</li>
-                    <li>Enhanced User Experience</li>
-                    <li>Enhanced Shopping Experience</li>
-                    <li>Device Compatibility</li>   
-                </ul>
+                This Unity Augmented Reality project allows users to place virtual 3D furniture models onto horizontal planes in real-world environments. Utilizing AR Foundation, raycasting plane detection, and physical scale calibration, the app enables seamless visualization before purchasing.
             </p>
+
+            <div class="vimeo-frame-horizontal" style="padding:56.25% 0 0 0; position:relative; margin: 2em 0; border: 1px solid var(--clr-accent-cyan); border-radius: 8px; overflow: hidden; box-shadow: var(--glow-cyan);">
+                <iframe src="https://player.vimeo.com/video/1037195486?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Furniture AR Demo"></iframe>
+            </div>
+
+            <h3>&lt;KEY ARCHITECTURAL FEATURES /&gt;</h3>
+            <ul>
+                <li><i class="fas fa-check-circle neon-cyan"></i> AR Foundation Surface Detection</li>
+                <li><i class="fas fa-check-circle neon-cyan"></i> Real-time Model Scaling & Rotation</li>
+                <li><i class="fas fa-check-circle neon-cyan"></i> Real-World Dynamic Shadows</li>
+                <li><i class="fas fa-check-circle neon-cyan"></i> Texture & Color Material Swapping</li>
+                <li><i class="fas fa-check-circle neon-cyan"></i> High Performance Mobile Shaders</li>
+            </ul>
+
+            <div style="margin-top: 3em; text-align: center;">
+                <a href="index.html#work" class="btn btn--cyber"><i class="fas fa-arrow-left"></i> Back to Spatial Matrix</a>
+            </div>
         </section>
 
         <footer class="footer">
-
-            <a href="mailto:akifzaman4040@gmail.com" class="footer__link">akifzaman4040@gmail.com</a>
-
-            <ul class="social-list">
-
-                <li class="social-list__item">
-                    <a class="social-list__link" href="https://www.linkedin.com/in/md-akif-zaman-35740a162/">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                </li>
-
-                <li class="social-list__item">
-                    <a class="social-list__link" href="https://github.com/akifzaman">
-                        <i class="fab fa-github"></i>
-                    </a>
-                </li>
-
-                <li class="social-list__item">
-                    <a class="social-list__link" href="https://www.facebook.com/akif.zaman.98">
-                        <i class="fab fa-facebook"></i>
-                    </a>
-                </li>
-
-            </ul>
+            <p class="footer__copy">&copy; 2025 Md. Akif Zaman // All Rights Reserved</p>
         </footer>
-
     </body>
 </html>
