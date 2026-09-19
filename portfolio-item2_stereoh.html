@@ -3,87 +3,72 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Developer Portfolio Site</title>
+        <title>Augmented Reality Furniture TryOn | Md. Akif Zaman</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
-        <!-- Update these with your own fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,900|Source+Sans+Pro:300,900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@500;600;700&family=Source+Code+Pro:wght@400;700&display=swap" rel="stylesheet">
         <script src="https://kit.fontawesome.com/20b417e3c8.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="css/style.css">
-        <script async src="js/index.js"></script>
+        <script defer src="js/index.js"></script>
     </head>
     
-    <body>
-        <header>
+    <body class="cyber-theme">
+        <div class="scanlines"></div>
+        <div class="cyber-grid-overlay"></div>
 
+        <header class="cyber-header">
             <div class="logo">
-                <!-- <img src=http://andreyradovski.com/images/homeheaderb.png alt="developer's logo"> -->
+                <a href="index.html" class="logo__text"><span class="neon-pink">&lt;</span>AKIF<span class="neon-cyan">.XR /&gt;</span></a>
             </div>
-
-            <button class="nav-toggle" aria-label="toggle navigation">
-                <span class="hamburger"></span>
-            </button>
 
             <nav class="nav">
                 <ul class="nav__list">
-                    <li class="nav__item"><a class="nav__link" href="index.html">Home</a></li>
-                    <li class="nav__item"><a class="nav__link" href="index.html#services">My Services</a></li>
-                    <li class="nav__item"><a class="nav__link" href="index.html#about">About Me</a></li>
-                    <li class="nav__item"><a class="nav__link" href="index.html#work">My Work</a></li>
+                    <li class="nav__item"><a class="nav__link" href="index.html#home">01 // Home</a></li>
+                    <li class="nav__item"><a class="nav__link" href="index.html#work">02 // Portfolio</a></li>
+                    <li class="nav__item"><a class="nav__link" href="index.html#contact">03 // Contact</a></li>
                 </ul>
             </nav>
-
         </header>
 
-        <section class="intro">
+        <section class="intro" style="min-height: auto; padding-top: 8em;">
+            <div class="intro__content">
+                <div class="hud-tag"><i class="fas fa-cube"></i> UNITY AR // SPATIAL COMMERCE</div>
+                <h1 class="section__title">
+                    AR Furniture <strong>TryOn Suite</strong>
+                </h1>
+                <p class="section__subtitle">Markerless Surface Detection & Precision Spatial Anchoring</p>
+            </div>
 
-            <h1 class="section__title section__title--intro">
-                Social online VR<strong>Stereoh</strong>
-            </h1>
-            
-            <p class="section__subtitle section__subtitle--intro">Virtual concerts in 3D venues</p>
-            <img class="intro__img intro__img--stereoh" src="img/halloween_001.jpg" alt="virtual avatars talking in a colorful environment">
+            <div class="intro__img-wrapper">
+                <div class="hud-frame"></div>
+                <img class="intro__img" src="img/FurnitureTryOn.png" alt="Furniture TryOn AR App">
+            </div>
         </section>
 
         <section class="portfolio-item-individual">
-            <p> Conceptualized and led production on a platform for virtual concerts based on Mozilla Hubs Cloud, designed and built 3D venues and sets for the events in Blender, maintained AWS server infrastructure, set up live streaming via OBS Studio, 2020 - pres. 
-
+            <p>
+                This Unity Augmented Reality project allows users to place virtual 3D furniture models onto horizontal planes in real-world environments. Utilizing AR Foundation, raycasting plane detection, and physical scale calibration, the app enables seamless visualization before purchasing.
             </p>
 
-            <img class="intro__img" src="img/tropicalFreeze_014.png" alt="beautiful virtual oasis with a stage framed my polygonal palm trees">
-            
-            <p><a href="https://stereoh.one/">Stereoh</a> is a startup aiming to offer innovative virtual concert experiences combining 3D venues and social avatars with live-streamed performances by underground dance music artists and DJs. The goal is to recreate the feel of a real-life club, where people can explore, socialize and enjoy music in most natural ways.</p>
-            
-            <p>After joining the team at Stereoh I started by identifying Mozilla Hubs Cloud web VR platform as the best technological fit that would allow for fastest rollout and maximum convenience of user access. I collaborated with web developers and the CEO on conceptualizing the platform’s website, as well as designed several of the venues and built them in Blender. I also maintained AWS and Hubs Cloud back-end and created guidelines for live event video streaming via OBS Studio. The result was just 4 months from ideation to generating revenue via public event ticket sales and private corporate events.</p>
+            <div class="vimeo-frame-horizontal" style="padding:56.25% 0 0 0; position:relative; margin: 2em 0; border: 1px solid var(--clr-accent-cyan); border-radius: 8px; overflow: hidden; box-shadow: var(--glow-cyan);">
+                <iframe src="https://player.vimeo.com/video/1037195486?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Furniture AR Demo"></iframe>
+            </div>
 
-            <p>Visit one of the venues I designed and modeled in Blender for Stereoh: <a href="https://hubs.mozilla.com/iYK3jKb/saturn6-test/">SATURN6</a></p>
+            <h3>&lt;KEY ARCHITECTURAL FEATURES /&gt;</h3>
+            <ul>
+                <li><i class="fas fa-check-circle neon-cyan"></i> AR Foundation Surface Detection</li>
+                <li><i class="fas fa-check-circle neon-cyan"></i> Real-time Model Scaling & Rotation</li>
+                <li><i class="fas fa-check-circle neon-cyan"></i> Real-World Dynamic Shadows</li>
+                <li><i class="fas fa-check-circle neon-cyan"></i> Texture & Color Material Swapping</li>
+                <li><i class="fas fa-check-circle neon-cyan"></i> High Performance Mobile Shaders</li>
+            </ul>
+
+            <div style="margin-top: 3em; text-align: center;">
+                <a href="index.html#work" class="btn btn--cyber"><i class="fas fa-arrow-left"></i> Back to Spatial Matrix</a>
+            </div>
         </section>
 
         <footer class="footer">
-
-            <a href="mailto:akifzaman4040@gmail.com" class="footer__link">akifzaman4040@gmail.com</a>
-
-            <ul class="social-list">
-
-                <li class="social-list__item">
-                    <a class="social-list__link" href="https://www.linkedin.com/in/md-akif-zaman-35740a162/">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                </li>
-
-                <li class="social-list__item">
-                    <a class="social-list__link" href="https://github.com/akifzaman">
-                        <i class="fab fa-github"></i>
-                    </a>
-                </li>
-
-                <li class="social-list__item">
-                    <a class="social-list__link" href="https://www.facebook.com/akif.zaman.98">
-                        <i class="fab fa-facebook"></i>
-                    </a>
-                </li>
-
-            </ul>
+            <p class="footer__copy">&copy; 2025 Md. Akif Zaman // All Rights Reserved</p>
         </footer>
-
     </body>
 </html>
