@@ -1,5 +1,5 @@
 // -------------------------------------------------------------
-// Cyberpunk / Spatial Computing XR Portfolio Engine v2.5
+// Cyberpunk / Spatial Computing XR Portfolio Engine v3.0
 // -------------------------------------------------------------
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -13,6 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
     initThemeMatrix();
     initProjectQuickModal();
     initSandboxDemos();
+    initMatrixCodeRain();
+    initAudioSynthPad();
 });
 
 // 1. Navigation Controller
@@ -55,7 +57,7 @@ function initSFXAudio() {
             audioIcon.className = 'fas fa-volume-up';
             audioLabel.textContent = 'SFX: ON';
             audioToggle.classList.add('active');
-            playCyberClickSound(800, 0.05);
+            playCyberSound(800, 'triangle', 0.08);
         } else {
             audioIcon.className = 'fas fa-volume-mute';
             audioLabel.textContent = 'SFX: OFF';
@@ -63,7 +65,6 @@ function initSFXAudio() {
         }
     });
 
-    // Hover & click SFX dynamic delegation
     document.addEventListener('mouseenter', (e) => {
         if (sfxEnabled && audioCtx && (e.target.classList.contains('sfx-hover') || e.target.classList.contains('sfx-btn'))) {
             playCyberHoverSound();
@@ -72,7 +73,7 @@ function initSFXAudio() {
 
     document.addEventListener('click', (e) => {
         if (sfxEnabled && audioCtx && (e.target.classList.contains('sfx-btn') || e.target.classList.contains('btn'))) {
-            playCyberClickSound(1100, 0.06);
+            playCyberSound(1100, 'triangle', 0.06);
         }
     }, true);
 }
@@ -99,16 +100,19 @@ function playCyberHoverSound() {
     }
 }
 
-function playCyberClickSound(freq = 900, duration = 0.06) {
+function playCyberSound(freq = 900, type = 'triangle', duration = 0.08, vol = 0.05) {
+    if (!audioCtx) {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    }
     try {
         const osc = audioCtx.createOscillator();
         const gain = audioCtx.createGain();
 
-        osc.type = 'triangle';
+        osc.type = type;
         osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
-        osc.frequency.exponentialRampToValueAtTime(300, audioCtx.currentTime + duration);
+        osc.frequency.exponentialRampToValueAtTime(Math.max(10, freq * 0.3), audioCtx.currentTime + duration);
 
-        gain.gain.setValueAtTime(0.04, audioCtx.currentTime);
+        gain.gain.setValueAtTime(vol, audioCtx.currentTime);
         gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
 
         osc.connect(gain);
@@ -153,7 +157,7 @@ function initThemeMatrix() {
     });
 }
 
-// 5. Interactive Portfolio Filters, Live Search & View Modes (Grid / Timeline / Spotlight)
+// 5. Interactive Portfolio Filters, Live Search & View Modes
 function initPortfolioFiltersAndToolbar() {
     const filterButtons = document.querySelectorAll('.filter-btn');
     const portfolioItems = Array.from(document.querySelectorAll('.portfolio__item'));
@@ -190,7 +194,6 @@ function initPortfolioFiltersAndToolbar() {
             }
         });
 
-        // View Mode Layout Adjustments
         if (currentView === 'grid') {
             container.className = 'portfolio portfolio-grid';
             spotlightControls.style.display = 'none';
@@ -217,7 +220,6 @@ function initPortfolioFiltersAndToolbar() {
         }
     }
 
-    // Category Filter Buttons
     filterButtons.forEach(btn => {
         btn.addEventListener('click', () => {
             filterButtons.forEach(b => b.classList.remove('active'));
@@ -228,7 +230,6 @@ function initPortfolioFiltersAndToolbar() {
         });
     });
 
-    // Live Search
     if (searchInput) {
         searchInput.addEventListener('input', (e) => {
             currentSearch = e.target.value.toLowerCase().trim();
@@ -245,7 +246,6 @@ function initPortfolioFiltersAndToolbar() {
         });
     }
 
-    // View Mode Switcher Buttons
     viewButtons.forEach(btn => {
         btn.addEventListener('click', () => {
             viewButtons.forEach(b => b.classList.remove('active'));
@@ -256,7 +256,6 @@ function initPortfolioFiltersAndToolbar() {
         });
     });
 
-    // Spotlight Navigation
     if (spotlightPrev && spotlightNext) {
         spotlightPrev.addEventListener('click', () => {
             const visible = portfolioItems.filter(item => {
@@ -313,7 +312,6 @@ function initTiltEffect() {
 function initCyberCLI() {
     const cliForm = document.getElementById('cli-form');
     const cliInput = document.getElementById('cli-input');
-    const cliOutput = document.getElementById('cli-output');
     const cliTags = document.querySelectorAll('.cli-tag');
 
     if (!cliForm) return;
@@ -350,7 +348,7 @@ function executeCLICommand(cmd) {
     const lower = cmd.toLowerCase().trim();
 
     if (lower === 'help') {
-        printCLILine(`Available commands: <span class="neon-cyan">whoami, skills, stats, projects, clear, warp, theme, mesh</span>`);
+        printCLILine(`Available commands: <span class="neon-cyan">whoami, skills, stats, projects, matrix, clear, warp, theme, shockwave</span>`);
     } else if (lower === 'whoami') {
         printCLILine(`Md. Akif Zaman // XR Creative Developer & Spatial Computing Engineer with 2.5+ years of industry experience.`);
     } else if (lower === 'skills') {
@@ -360,6 +358,10 @@ function executeCLICommand(cmd) {
     } else if (lower === 'projects') {
         printCLILine(`Featured: Akij AR, GITEX Quest 3 Drone MR, Nissan 3D AI Visualizer, 8th Wall WebAR.`);
         document.querySelector('#work')?.scrollIntoView({ behavior: 'smooth' });
+    } else if (lower === 'matrix') {
+        document.getElementById('matrix-toggle')?.click();
+    } else if (lower === 'shockwave') {
+        document.getElementById('btn-shockwave')?.click();
     } else if (lower === 'clear') {
         const cliOutput = document.getElementById('cli-output');
         if (cliOutput) cliOutput.innerHTML = '';
@@ -370,7 +372,7 @@ function executeCLICommand(cmd) {
     }
 }
 
-// 8. Three.js 3D Spatial Canvas & Dynamic Controls Architecture
+// 8. Three.js 3D Spatial Canvas with Drag Orbiting & Interactive Particles
 let activeMeshType = 'torus';
 let isWarpSpeed = false;
 let isWireframe = true;
@@ -398,22 +400,22 @@ function initThreeJSXRScene() {
     renderer.setSize(container.clientWidth, container.clientHeight);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-    // A. Cybernetic Particle Constellation Network
-    const particleCount = 220;
+    // A. Cybernetic Particle Constellation
+    const particleCount = 350;
     const particleGeo = new THREE.BufferGeometry();
     const positions = new Float32Array(particleCount * 3);
 
     for (let i = 0; i < particleCount * 3; i += 3) {
-        positions[i] = (Math.random() - 0.5) * 40;
-        positions[i + 1] = (Math.random() - 0.5) * 30;
-        positions[i + 2] = (Math.random() - 0.5) * 25;
+        positions[i] = (Math.random() - 0.5) * 45;
+        positions[i + 1] = (Math.random() - 0.5) * 35;
+        positions[i + 2] = (Math.random() - 0.5) * 30;
     }
 
     particleGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
 
     const particleMaterial = new THREE.PointsMaterial({
         color: 0x00f0ff,
-        size: 0.22,
+        size: 0.25,
         transparent: true,
         opacity: 0.85
     });
@@ -421,7 +423,7 @@ function initThreeJSXRScene() {
     const particles = new THREE.Points(particleGeo, particleMaterial);
     scene.add(particles);
 
-    // B. Interactive Main Holographic Object Group
+    // B. Main Holographic 3D Object Group
     const group = new THREE.Group();
     let mainMesh = createDynamicMesh('torus', isWireframe);
     group.add(mainMesh);
@@ -438,7 +440,7 @@ function initThreeJSXRScene() {
     icoMesh.position.set(-9, -3, -3);
     group.add(icoMesh);
 
-    // Central Spatial Grid
+    // Central Grid
     const gridHelper = new THREE.GridHelper(50, 25, 0x00f0ff, 0xff0055);
     gridHelper.position.y = -10;
     gridHelper.material.opacity = 0.25;
@@ -466,7 +468,7 @@ function initThreeJSXRScene() {
         return mesh;
     }
 
-    // Mesh Control Buttons Listener
+    // Mesh Swap Buttons
     document.querySelectorAll('.mesh-btn[data-mesh]').forEach(btn => {
         btn.addEventListener('click', () => {
             document.querySelectorAll('.mesh-btn[data-mesh]').forEach(b => b.classList.remove('active'));
@@ -489,7 +491,7 @@ function initThreeJSXRScene() {
         btnWarp.addEventListener('click', () => {
             isWarpSpeed = !isWarpSpeed;
             btnWarp.classList.toggle('active', isWarpSpeed);
-            btnWarp.innerHTML = `<i class="fas fa-tachometer-alt"></i> WARP SPEED [${isWarpSpeed ? 'ON' : 'OFF'}]`;
+            btnWarp.innerHTML = `<i class="fas fa-tachometer-alt"></i> OVERDRIVE [${isWarpSpeed ? 'ON' : 'OFF'}]`;
             printCLILine(`Overdrive Warp Speed: <span class="neon-pink">${isWarpSpeed ? 'ACTIVE' : 'NORMAL'}</span>`);
         });
     }
@@ -504,10 +506,54 @@ function initThreeJSXRScene() {
         });
     }
 
-    // Mouse Parallax & Spatial Telemetry
+    // Shockwave Energy Pulse FX
+    const btnShock = document.getElementById('btn-shockwave');
+    let shockwaveActive = false;
+    let shockScale = 1;
+
+    if (btnShock) {
+        btnShock.addEventListener('click', () => {
+            shockwaveActive = true;
+            shockScale = 1;
+            playCyberSound(1400, 'sawtooth', 0.25, 0.08);
+            printCLILine(`Shockwave Energy Pulse: <span class="neon-cyan">TRIGGERED</span>`);
+        });
+    }
+
+    // Portal Warp Jump
+    const portalJumpBtn = document.getElementById('btn-portal-jump');
+    if (portalJumpBtn) {
+        portalJumpBtn.addEventListener('click', () => {
+            playCyberSound(2000, 'square', 0.4, 0.1);
+            printCLILine(`Initiating <span class="neon-pink">PORTAL WARP JUMP</span>...`);
+            camera.position.z = 2;
+            isWarpSpeed = true;
+            setTimeout(() => {
+                camera.position.z = 18;
+                isWarpSpeed = false;
+                document.querySelector('#work')?.scrollIntoView({ behavior: 'smooth' });
+            }, 800);
+        });
+    }
+
+    // Interactive Drag Orbit Controls
+    let isDragging = false;
+    let previousMousePosition = { x: 0, y: 0 };
+
+    window.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        previousMousePosition = { x: e.clientX, y: e.clientY };
+    });
+
+    window.addEventListener('mouseup', () => {
+        isDragging = false;
+    });
+
+    // Mouse Parallax & Telemetry
     let mouseX = 0, mouseY = 0, targetX = 0, targetY = 0;
     const hudX = document.getElementById('hud-pos-x');
     const hudY = document.getElementById('hud-pos-y');
+    const hudRot = document.getElementById('hud-rot-angle');
 
     window.addEventListener('mousemove', (e) => {
         mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
@@ -515,6 +561,18 @@ function initThreeJSXRScene() {
 
         if (hudX) hudX.textContent = (mouseX > 0 ? '+' : '') + mouseX.toFixed(2);
         if (hudY) hudY.textContent = (mouseY > 0 ? '+' : '') + mouseY.toFixed(2);
+
+        if (isDragging && mainMesh) {
+            const deltaMove = {
+                x: e.clientX - previousMousePosition.x,
+                y: e.clientY - previousMousePosition.y
+            };
+
+            mainMesh.rotation.y += deltaMove.x * 0.01;
+            mainMesh.rotation.x += deltaMove.y * 0.01;
+
+            previousMousePosition = { x: e.clientX, y: e.clientY };
+        }
     });
 
     window.addEventListener('resize', () => {
@@ -531,9 +589,24 @@ function initThreeJSXRScene() {
         targetX += (mouseX - targetX) * 0.05;
         targetY += (mouseY - targetY) * 0.05;
 
-        if (mainMesh) {
+        if (mainMesh && !isDragging) {
             mainMesh.rotation.x += 0.005 * speedMult;
             mainMesh.rotation.y += 0.007 * speedMult;
+        }
+
+        if (mainMesh && hudRot) {
+            const angleDeg = ((mainMesh.rotation.y * 180 / Math.PI) % 360).toFixed(1);
+            hudRot.textContent = `${angleDeg}°`;
+        }
+
+        // Shockwave pulse animation
+        if (shockwaveActive && mainMesh) {
+            shockScale += 0.08;
+            mainMesh.scale.set(shockScale, shockScale, shockScale);
+            if (shockScale > 2.2) {
+                shockwaveActive = false;
+                mainMesh.scale.set(1, 1, 1);
+            }
         }
 
         icoMesh.rotation.x -= 0.006 * speedMult;
@@ -583,7 +656,6 @@ function initProjectQuickModal() {
             modalDesc.textContent = desc;
             modalFullBtn.setAttribute('href', link);
 
-            // Parse specs
             modalSpecs.innerHTML = '';
             specsStr.split('|').forEach(spec => {
                 const div = document.createElement('div');
@@ -709,7 +781,6 @@ function initSandboxDemos() {
                 ctx.arc(0, 0, 60 + Math.sin(time * 3) * 8, 0, Math.PI * 2);
                 ctx.fill();
             } else {
-                // Hologram default
                 ctx.strokeStyle = '#00f0ff';
                 ctx.lineWidth = 2;
                 for (let r = 10; r <= 60; r += 12) {
@@ -756,4 +827,100 @@ function initSandboxDemos() {
             });
         }
     }
+}
+
+// 11. Matrix Digital Code Rain Animation Overlay
+function initMatrixCodeRain() {
+    const canvas = document.getElementById('matrix-canvas');
+    const toggleBtn = document.getElementById('matrix-toggle');
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    let matrixActive = false;
+
+    function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    const chars = '01AKIFXRXYZ1001001001';
+    const fontSize = 14;
+    let columns = Math.floor(canvas.width / fontSize);
+    let drops = Array(columns).fill(1);
+
+    if (toggleBtn) {
+        toggleBtn.addEventListener('click', () => {
+            matrixActive = !matrixActive;
+            canvas.classList.toggle('active', matrixActive);
+            toggleBtn.classList.toggle('active', matrixActive);
+            toggleBtn.querySelector('span').textContent = `MATRIX: ${matrixActive ? 'ON' : 'OFF'}`;
+            printCLILine(`Matrix Digital Code Rain: <span class="neon-cyan">${matrixActive ? 'ENABLED' : 'DISABLED'}</span>`);
+        });
+    }
+
+    function drawMatrix() {
+        requestAnimationFrame(drawMatrix);
+        if (!matrixActive) return;
+
+        ctx.fillStyle = 'rgba(5, 7, 12, 0.08)';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        ctx.fillStyle = '#00f0ff';
+        ctx.font = `${fontSize}px var(--ff-code)`;
+
+        for (let i = 0; i < drops.length; i++) {
+            const text = chars.charAt(Math.floor(Math.random() * chars.length));
+            ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+            if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                drops[i] = 0;
+            }
+            drops[i]++;
+        }
+    }
+
+    drawMatrix();
+}
+
+// 12. Interactive Cyber Audio Synthesizer Sound Pad
+function initAudioSynthPad() {
+    const pads = document.querySelectorAll('.synth-pad');
+    const statusText = document.getElementById('synth-status');
+    const meterBar = document.getElementById('synth-bar');
+
+    if (pads.length === 0) return;
+
+    function triggerPad(pad) {
+        pads.forEach(p => p.classList.remove('active'));
+        pad.classList.add('active');
+
+        const freq = parseFloat(pad.getAttribute('data-freq')) || 440;
+        const type = pad.getAttribute('data-type') || 'sine';
+        const name = pad.getAttribute('data-name') || 'SYNTH NOTE';
+
+        playCyberSound(freq, type, 0.25, 0.08);
+
+        if (statusText) statusText.textContent = `PLAYING: ${name} (${freq} Hz)`;
+        if (meterBar) {
+            meterBar.style.width = '100%';
+            setTimeout(() => { meterBar.style.width = '0%'; }, 250);
+        }
+
+        setTimeout(() => { pad.classList.remove('active'); }, 200);
+    }
+
+    pads.forEach(pad => {
+        pad.addEventListener('click', () => triggerPad(pad));
+    });
+
+    // Keyboard Hotkey Triggering (Keys 1-8)
+    window.addEventListener('keydown', (e) => {
+        if (e.target.tagName === 'INPUT') return;
+        const keyNum = parseInt(e.key);
+        if (keyNum >= 1 && keyNum <= 8 && pads[keyNum - 1]) {
+            triggerPad(pads[keyNum - 1]);
+        }
+    });
 }

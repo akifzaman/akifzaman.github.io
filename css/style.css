@@ -68,7 +68,7 @@ body.cyber-theme {
     overflow-x: hidden;
 }
 
-/* Background Cyber Grid & Scanline VFX */
+/* Background Cyber Grid, Scanline VFX & Matrix Rain */
 .scanlines {
     position: fixed;
     top: 0;
@@ -103,6 +103,22 @@ body.cyber-theme {
     background-size: 40px 40px, 40px 40px, 40px 40px;
     pointer-events: none;
     z-index: 0;
+}
+
+#matrix-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+#matrix-canvas.active {
+    opacity: 0.85;
 }
 
 /* Typography & Headings */
@@ -198,12 +214,18 @@ h1, h2, h3, .logo__text {
     font-weight: 900;
 }
 
-.audio-control {
+.header-tools {
+    display: flex;
+    align-items: center;
+    gap: 0.8em;
+}
+
+.matrix-control, .audio-control {
     display: flex;
     align-items: center;
     gap: 0.5em;
     font-family: var(--ff-code);
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     color: var(--clr-accent-cyan);
     border: 1px solid rgba(0, 240, 255, 0.4);
     padding: 0.4em 0.8em;
@@ -213,6 +235,7 @@ h1, h2, h3, .logo__text {
     background: rgba(0, 240, 255, 0.05);
 }
 
+.matrix-control:hover, .matrix-control.active,
 .audio-control:hover, .audio-control.active {
     background: var(--clr-accent-cyan);
     color: #000;
@@ -241,12 +264,12 @@ h1, h2, h3, .logo__text {
     justify-content: center;
     align-items: center;
     height: 100%;
-    gap: 2em;
+    gap: 1.8em;
 }
 
 .nav__link {
     font-family: var(--ff-heading);
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     text-decoration: none;
     color: #fff;
     transition: all 0.3s ease;
@@ -295,10 +318,10 @@ h1, h2, h3, .logo__text {
     align-items: center;
     gap: 0.6em;
     font-family: var(--ff-heading);
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     text-transform: uppercase;
     text-decoration: none;
-    padding: 0.85em 2em;
+    padding: 0.85em 1.8em;
     border-radius: 4px;
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -311,6 +334,15 @@ h1, h2, h3, .logo__text {
     font-weight: 700;
     box-shadow: var(--glow-cyan);
     border: none;
+}
+
+.btn--pulse {
+    animation: btnPulse 2s infinite alternate;
+}
+
+@keyframes btnPulse {
+    0% { box-shadow: 0 0 15px rgba(0, 240, 255, 0.6); }
+    100% { box-shadow: 0 0 35px rgba(0, 240, 255, 1), 0 0 10px #ff0055; }
 }
 
 .btn--cyber:hover {
@@ -354,7 +386,7 @@ h1, h2, h3, .logo__text {
     box-shadow: var(--glow-cyan);
 }
 
-/* Hero Section & 3D Canvas */
+/* Hero Section & Interactive 3D Canvas */
 .intro {
     min-height: 100vh;
     display: flex;
@@ -372,7 +404,11 @@ h1, h2, h3, .logo__text {
     width: 100%;
     height: 100%;
     z-index: 0;
-    pointer-events: none;
+    cursor: grab;
+}
+
+#xr-canvas:active {
+    cursor: grabbing;
 }
 
 /* Spatial Telemetry HUD */
@@ -380,7 +416,7 @@ h1, h2, h3, .logo__text {
     position: absolute;
     top: 6em;
     right: 2em;
-    background: rgba(5, 7, 12, 0.85);
+    background: rgba(5, 7, 12, 0.88);
     border: var(--border-cyber);
     backdrop-filter: blur(10px);
     padding: 1em 1.2em;
@@ -388,7 +424,7 @@ h1, h2, h3, .logo__text {
     font-family: var(--ff-code);
     font-size: 0.75rem;
     z-index: 10;
-    min-width: 210px;
+    min-width: 230px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
 }
 
@@ -414,6 +450,15 @@ h1, h2, h3, .logo__text {
     color: #fff;
 }
 
+.telemetry-hint {
+    margin-top: 0.8em;
+    padding-top: 0.5em;
+    border-top: 1px dashed rgba(255, 0, 85, 0.4);
+    color: var(--clr-accent-pink);
+    font-size: 0.7rem;
+    text-align: center;
+}
+
 .intro__content {
     position: relative;
     z-index: 2;
@@ -429,7 +474,7 @@ h1, h2, h3, .logo__text {
 
 /* Interactive Hero Command Controls */
 .hero-controls-panel {
-    background: rgba(12, 16, 29, 0.85);
+    background: rgba(12, 16, 29, 0.88);
     border: var(--border-cyber);
     backdrop-filter: blur(12px);
     border-radius: 8px;
@@ -590,7 +635,7 @@ h1, h2, h3, .logo__text {
 
 .hero-cta {
     display: flex;
-    gap: 1.2em;
+    gap: 1em;
     flex-wrap: wrap;
 }
 
@@ -1257,6 +1302,103 @@ h1, h2, h3, .logo__text {
     font-family: var(--ff-code);
     font-size: 0.75rem;
     color: var(--clr-accent-cyan);
+}
+
+/* Interactive Cyber Audio Synth Pad Section */
+.synth-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4em 2em;
+    background: rgba(12, 16, 29, 0.85);
+    border: var(--border-cyber);
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+}
+
+.synth-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2em;
+}
+
+@media (min-width: 850px) {
+    .synth-container {
+        grid-template-columns: 2fr 1fr;
+    }
+}
+
+.synth-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 1em;
+}
+
+.synth-pad {
+    background: rgba(5, 7, 12, 0.9);
+    border: 1px solid var(--clr-accent-cyan);
+    border-radius: 8px;
+    padding: 1.5em 1em;
+    color: #fff;
+    font-family: var(--ff-heading);
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5em;
+    box-shadow: inset 0 0 10px rgba(0, 240, 255, 0.1);
+}
+
+.synth-pad .pad-num {
+    font-family: var(--ff-code);
+    font-size: 0.75rem;
+    color: var(--clr-accent-pink);
+}
+
+.synth-pad:hover {
+    background: rgba(0, 240, 255, 0.15);
+    transform: translateY(-4px);
+    box-shadow: var(--glow-cyan);
+}
+
+.synth-pad.active {
+    background: var(--clr-accent-cyan) !important;
+    color: #000 !important;
+    box-shadow: 0 0 25px var(--clr-accent-cyan) !important;
+    transform: scale(0.96) !important;
+}
+
+.synth-display {
+    background: rgba(5, 7, 12, 0.95);
+    border: 1px dashed var(--clr-accent-purple);
+    border-radius: 8px;
+    padding: 1.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.synth-title {
+    font-family: var(--ff-code);
+    font-size: 0.85rem;
+    color: var(--clr-text-muted);
+    display: block;
+    margin-bottom: 1em;
+}
+
+.synth-meter {
+    height: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.synth-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--clr-accent-cyan), var(--clr-accent-pink));
+    transition: width 0.1s ease;
 }
 
 /* Tech Stack Architecture Section */

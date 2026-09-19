@@ -15,19 +15,28 @@
     </head>
 
     <body class="cyber-theme theme-cyan">
-        <!-- Cyber HUD Overlay & Scanlines -->
+        <!-- Cyber HUD Overlay, Scanlines & Matrix Code Rain Canvas -->
         <div class="scanlines"></div>
         <div class="cyber-grid-overlay"></div>
+        <canvas id="matrix-canvas"></canvas>
 
         <header class="cyber-header">
             <div class="logo">
                 <a href="#home" class="logo__text"><span class="neon-pink">&lt;</span>AKIF<span class="neon-cyan">.XR /&gt;</span></a>
             </div>
 
-            <!-- Audio Controller Toggle -->
-            <div class="audio-control" id="audio-toggle" title="Toggle Futuristic SFX">
-                <i class="fas fa-volume-mute" id="audio-icon"></i>
-                <span class="audio-label">SFX: OFF</span>
+            <div class="header-tools">
+                <!-- Matrix Rain Toggle -->
+                <div class="matrix-control sfx-btn" id="matrix-toggle" title="Toggle Digital Code Rain">
+                    <i class="fas fa-terminal"></i>
+                    <span>MATRIX: OFF</span>
+                </div>
+
+                <!-- Audio Controller Toggle -->
+                <div class="audio-control sfx-btn" id="audio-toggle" title="Toggle Futuristic SFX">
+                    <i class="fas fa-volume-mute" id="audio-icon"></i>
+                    <span class="audio-label">SFX: OFF</span>
+                </div>
             </div>
 
             <button class="nav-toggle" aria-label="toggle navigation">
@@ -38,15 +47,16 @@
                 <ul class="nav__list">
                     <li class="nav__item"><a class="nav__link sfx-btn" href="#home">01 // Home</a></li>
                     <li class="nav__item"><a class="nav__link sfx-btn" href="#about">02 // About</a></li>
-                    <li class="nav__item"><a class="nav__link sfx-btn" href="#services">03 // Services</a></li>
+                    <li class="nav__item"><a class="nav__link sfx-btn" href="#services">03 // Capabilities</a></li>
                     <li class="nav__item"><a class="nav__link sfx-btn" href="#work">04 // Portfolio</a></li>
                     <li class="nav__item"><a class="nav__link sfx-btn" href="#sandbox">05 // R&D Lab</a></li>
-                    <li class="nav__item"><a class="nav__link sfx-btn" href="#contact">06 // Contact</a></li>
+                    <li class="nav__item"><a class="nav__link sfx-btn" href="#synth">06 // Synth Pad</a></li>
+                    <li class="nav__item"><a class="nav__link sfx-btn" href="#contact">07 // Contact</a></li>
                 </ul>
             </nav>
         </header>
 
-        <!-- Hero Section with 3D Spatial Canvas -->
+        <!-- Hero Section with Interactive 3D Spatial Canvas -->
         <section class="intro" id="home">
             <canvas id="xr-canvas"></canvas>
 
@@ -55,9 +65,11 @@
                 <div class="telemetry-header"><i class="fas fa-satellite-dish"></i> SPATIAL HUD TELEMETRY</div>
                 <div class="telemetry-row"><span>POS X:</span> <strong id="hud-pos-x">+0.00</strong></div>
                 <div class="telemetry-row"><span>POS Y:</span> <strong id="hud-pos-y">+0.00</strong></div>
-                <div class="telemetry-row"><span>VERTICES:</span> <strong>2,400</strong></div>
+                <div class="telemetry-row"><span>ROTATION:</span> <strong id="hud-rot-angle">0.0°</strong></div>
+                <div class="telemetry-row"><span>PARTICLES:</span> <strong id="hud-particles">350</strong></div>
                 <div class="telemetry-row"><span>RENDER MODE:</span> <strong id="hud-mesh-mode" class="neon-cyan">TORUS KNOT</strong></div>
                 <div class="telemetry-row"><span>FPS TARGET:</span> <strong class="neon-pink">60 FPS</strong></div>
+                <div class="telemetry-hint"><i class="fas fa-hand-pointer"></i> DRAG ANYWHERE ON 3D SCENE TO ROTATE</div>
             </div>
 
             <div class="intro__content reveal-on-scroll">
@@ -90,47 +102,50 @@
                     </div>
 
                     <div class="control-group">
-                        <span class="control-title"><i class="fas fa-cubes"></i> 3D MESH:</span>
+                        <span class="control-title"><i class="fas fa-cubes"></i> 3D GEOMETRY:</span>
                         <div class="mesh-buttons">
-                            <button class="mesh-btn sfx-btn active" data-mesh="torus"><i class="fas fa-ring"></i> Torus</button>
-                            <button class="mesh-btn sfx-btn" data-mesh="ico"><i class="fas fa-gem"></i> Core</button>
-                            <button class="mesh-btn sfx-btn" data-mesh="sphere"><i class="fas fa-globe"></i> Sphere</button>
-                            <button class="mesh-btn sfx-btn" data-mesh="helix"><i class="fas fa-dna"></i> Helix</button>
+                            <button class="mesh-btn sfx-btn active" data-mesh="torus"><i class="fas fa-ring"></i> Torus Knot</button>
+                            <button class="mesh-btn sfx-btn" data-mesh="ico"><i class="fas fa-gem"></i> VR Core</button>
+                            <button class="mesh-btn sfx-btn" data-mesh="sphere"><i class="fas fa-globe"></i> Quantum Orb</button>
+                            <button class="mesh-btn sfx-btn" data-mesh="helix"><i class="fas fa-dna"></i> DNA Helix</button>
                         </div>
                     </div>
 
                     <div class="control-group">
-                        <span class="control-title"><i class="fas fa-bolt"></i> OVERDRIVE:</span>
-                        <button class="toggle-btn sfx-btn" id="btn-warp"><i class="fas fa-tachometer-alt"></i> WARP SPEED [OFF]</button>
+                        <span class="control-title"><i class="fas fa-sliders-h"></i> 3D VFX FX:</span>
+                        <button class="toggle-btn sfx-btn" id="btn-warp"><i class="fas fa-tachometer-alt"></i> OVERDRIVE [OFF]</button>
                         <button class="toggle-btn sfx-btn" id="btn-wire"><i class="fas fa-border-all"></i> WIREFRAME [ON]</button>
+                        <button class="toggle-btn sfx-btn" id="btn-shockwave"><i class="fas fa-expand-arrows-alt"></i> ENERGY PULSE</button>
                     </div>
                 </div>
 
                 <!-- Interactive Cyber Command CLI Terminal -->
                 <div class="cyber-cli">
                     <div class="cli-header">
-                        <span><i class="fas fa-terminal"></i> SPATIAL_CLI v2.5 // TERMINAL INTERFACE</span>
-                        <span class="cli-status">READY</span>
+                        <span><i class="fas fa-terminal"></i> SPATIAL_CLI v3.0 // TERMINAL INTERFACE</span>
+                        <span class="cli-status">SYSTEM ONLINE</span>
                     </div>
                     <div class="cli-body" id="cli-output">
-                        <p class="cli-line text-muted">Type <span class="neon-cyan">'help'</span> or click preset commands below to execute spatial queries.</p>
+                        <p class="cli-line text-muted">Type <span class="neon-cyan">'help'</span> or click preset commands to trigger interactive queries.</p>
                     </div>
                     <div class="cli-presets">
                         <button class="cli-tag sfx-btn" data-cmd="whoami">whoami</button>
                         <button class="cli-tag sfx-btn" data-cmd="skills">skills</button>
                         <button class="cli-tag sfx-btn" data-cmd="stats">stats</button>
                         <button class="cli-tag sfx-btn" data-cmd="projects">projects</button>
+                        <button class="cli-tag sfx-btn" data-cmd="matrix">matrix</button>
                         <button class="cli-tag sfx-btn" data-cmd="clear">clear</button>
                     </div>
                     <form class="cli-form" id="cli-form">
                         <span class="cli-prompt">akif@xr-matrix:~$</span>
-                        <input type="text" id="cli-input" placeholder="Type command..." autocomplete="off">
+                        <input type="text" id="cli-input" placeholder="Type command (e.g. help, skills, warp)..." autocomplete="off">
                     </form>
                 </div>
 
                 <div class="hero-cta">
-                    <a class="btn btn--cyber sfx-btn" href="#work"><i class="fas fa-play"></i> Launch Portfolio Matrix</a>
-                    <a class="btn btn--outline sfx-btn" href="#sandbox"><i class="fas fa-flask"></i> Explore R&D Sandbox</a>
+                    <button class="btn btn--cyber btn--pulse sfx-btn" id="btn-portal-jump"><i class="fas fa-space-shuttle"></i> PORTAL WARP JUMP</button>
+                    <a class="btn btn--outline sfx-btn" href="#work"><i class="fas fa-th"></i> Portfolio Matrix</a>
+                    <a class="btn btn--outline sfx-btn" href="#synth"><i class="fas fa-music"></i> Audio Synth</a>
                 </div>
             </div>
 
@@ -526,6 +541,33 @@
                     </div>
                     <div class="sandbox-controls">
                         <button class="btn btn--outline btn--sm sfx-btn" id="btn-clear-anchors"><i class="fas fa-trash"></i> Reset Matrix (<span id="anchor-count">0</span> nodes)</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Cyber Synth Sound Pad Section -->
+        <section class="synth-section" id="synth">
+            <div class="section-header reveal-on-scroll">
+                <h2 class="section__title">&lt;SPATIAL AUDIO SYNTH PAD /&gt;</h2>
+                <p class="section__subtitle">Interactive Real-Time Web Audio Synthesizer (Click Pads or Press Keys 1-8)</p>
+            </div>
+
+            <div class="synth-container reveal-on-scroll">
+                <div class="synth-grid">
+                    <button class="synth-pad sfx-hover" data-note="C3" data-freq="130.81" data-type="sawtooth" data-name="BASS SYNTH"><span class="pad-num">[1]</span> BASS SYNTH</button>
+                    <button class="synth-pad sfx-hover" data-note="E3" data-freq="164.81" data-type="square" data-name="LASER ZAP"><span class="pad-num">[2]</span> LASER ZAP</button>
+                    <button class="synth-pad sfx-hover" data-note="G3" data-freq="196.00" data-type="sine" data-name="HOLO PING"><span class="pad-num">[3]</span> HOLO PING</button>
+                    <button class="synth-pad sfx-hover" data-note="C4" data-freq="261.63" data-type="triangle" data-name="WARP PULSE"><span class="pad-num">[4]</span> WARP PULSE</button>
+                    <button class="synth-pad sfx-hover" data-note="E4" data-freq="329.63" data-type="sine" data-name="CYBER CHIME"><span class="pad-num">[5]</span> CYBER CHIME</button>
+                    <button class="synth-pad sfx-hover" data-note="G4" data-freq="392.00" data-type="sawtooth" data-name="SUB DROP"><span class="pad-num">[6]</span> SUB DROP</button>
+                    <button class="synth-pad sfx-hover" data-note="B4" data-freq="493.88" data-type="square" data-name="PLASMA BLAST"><span class="pad-num">[7]</span> PLASMA BLAST</button>
+                    <button class="synth-pad sfx-hover" data-note="C5" data-freq="523.25" data-type="sine" data-name="VOID HUM"><span class="pad-num">[8]</span> VOID HUM</button>
+                </div>
+                <div class="synth-display">
+                    <div class="synth-screen">
+                        <span class="synth-title">SYNTH STATUS: <strong id="synth-status" class="neon-cyan">READY (SFX ACTIVE)</strong></span>
+                        <div class="synth-meter"><div class="synth-bar" id="synth-bar"></div></div>
                     </div>
                 </div>
             </div>
